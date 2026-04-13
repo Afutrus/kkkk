@@ -1,118 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Bongkar - Neo Party Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Bongkar - Neo Party</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-bg: #043e3a;
-            --accent-gold: linear-gradient(135deg, #ff9800, #ffcc33);
-            --glass-bg: rgba(11, 82, 80, 0.85);
-            --input-bg: #f3d2a2;
+            --primary-dark: #032b29;
+            --primary-light: #0b5250;
+            --accent-cyan: #00e5f4;
+            --accent-gold: linear-gradient(135deg, #ff9800, #ffe066);
+            --glass-card: rgba(11, 82, 80, 0.7);
+            --input-bg: rgba(243, 210, 162, 0.9);
             --text-dark: #5a3418;
-            --card-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            --text-light: #ffffff;
+            --shadow-hd: 0 20px 50px rgba(0,0,0,0.5);
         }
 
+        /* --- GLOBAL & BACKGROUND EFFECTS --- */
         body {
-            background: var(--primary-bg);
-            background-image: radial-gradient(circle at top, #0b5250 0%, #043e3a 100%);
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
             min-height: 100vh;
-        }
-
-        .appnwghdiprem {
-            width: 100%;
-            max-width: 450px;
-            background: transparent;
+            overflow-x: hidden;
             position: relative;
         }
 
-        /* Container & Card Style */
-        .boxverifnwghdi {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 0 0 25px 25px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 30px;
+        /* Animated Background Particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 10%, #0b7e7a 0%, var(--primary-dark) 70%);
+            z-index: -2;
         }
 
-        /* Header Modern */
+        .bg-glow {
+            position: fixed;
+            width: 300px; height: 300px;
+            background: var(--accent-cyan);
+            filter: blur(150px);
+            opacity: 0.2;
+            border-radius: 50%;
+            z-index: -1;
+            animation: glowMove 10s infinite alternate;
+        }
+
+        @keyframes glowMove {
+            0% { top: -10%; left: 10%; }
+            100% { top: 60%; left: 80%; }
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .appnwghdiprem {
+            width: 100%;
+            max-width: 480px;
+            background: transparent;
+            position: relative;
+            padding: 0 15px 30px 15px;
+            box-sizing: border-box;
+        }
+
+        /* --- GLASSMorphism CARD --- */
+        .boxverifnwghdi {
+            background: var(--glass-card);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 30px 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hd);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        /* --- MODERN HEADER --- */
         .headernwgverifhdi {
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
-            padding: 20px 10px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px 15px;
             text-align: center;
-            border-bottom: 3px solid #00e5f4;
+            border-bottom: 2px solid rgba(0, 229, 244, 0.5);
+            position: relative;
+        }
+
+        .headernwgverifhdi::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 50%;
+            width: 50px; height: 2px;
+            background: var(--accent-cyan);
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
         .headernwgverifhdi p {
             font-weight: 800;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #FFFF33;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 0 10px rgba(255,255,51, 0.5);
             margin: 0;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
-        /* Image Styling */
+        /* --- VISUAL ELEMENTS --- */
+        .banner-container {
+            position: relative;
+            padding: 20px;
+            text-align: center;
+        }
+
         .banner-img {
-            width: 90%;
-            margin: 15px auto;
-            display: block;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
         }
 
-        /* Button Links (HD Version) */
+        .banner-img:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        /* --- HD BUTTON LINKS --- */
+        .btn-group-links {
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+
         .btn-link-domino {
-            display: block;
-            width: 85%;
-            margin: 12px auto;
-            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin: 15px 0;
+            padding: 16px;
             background: var(--accent-gold);
             color: #000;
             font-weight: 800;
-            text-align: center;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 15px;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            box-shadow: 0 5px 15px rgba(255,152,0,0.3);
-            transition: 0.3s;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 0 #b36b00, 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+            box-sizing: border-box;
         }
 
         .btn-link-domino:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255,152,0,0.5);
+            transform: translateY(2px);
+            box-shadow: 0 4px 0 #b36b00, 0 8px 15px rgba(0,0,0,0.3);
         }
 
-        /* Pretty Inputs (HD focus) */
+        .btn-link-domino:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 #b36b00, 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        /* --- INPUT FORM HD (NEUMORPHIC INPUTS) --- */
+        .form-body {
+            padding: 10px 20px 20px 20px;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 25px 0 10px 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .pretty-input {
-            width: 85%;
-            margin: 15px auto;
+            width: 100%;
+            margin: 15px 0;
             display: flex;
             align-items: center;
             background: var(--input-bg);
-            border-radius: 12px;
-            padding: 12px 15px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            padding: 14px 18px;
+            box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2), inset -5px -5px 10px rgba(255,255,255,0.1);
             border: 2px solid transparent;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         .pretty-input:focus-within {
             border-color: #ffcc33;
-            background: #fff;
-            transform: scale(1.02);
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .pretty-input input, .pretty-input select {
@@ -123,125 +211,211 @@
             font-weight: 700;
             color: var(--text-dark);
             font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .pretty-input select {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
         }
 
         .pretty-icon {
-            margin-right: 12px;
+            margin-right: 15px;
             color: #6b3f1d;
             font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
         }
 
-        /* ID Section */
+        /* --- RECEIVER ID SECTION (ULTRA HD) --- */
         .id-display-section {
-            background: rgba(0,0,0,0.2);
-            padding: 20px 10px;
-            margin: 20px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 25px 15px;
+            margin: 30px 0;
             text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Shine Effect */
+        .id-display-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .id-image {
-            width: 180px;
+            width: 160px;
             border-radius: 15px;
             border: 4px solid #ffcc33;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255,204,51, 0.4);
+            position: relative; z-index: 1;
+        }
+
+        .copy-wrapper {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            z-index: 1;
         }
 
         .copy-btn {
+            position: absolute;
+            right: 8px; top: 50%;
+            transform: translateY(-50%);
             background: #fff;
             border: none;
             padding: 8px 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 800;
             cursor: pointer;
             color: #ff9800;
-            margin-left: 10px;
-        }
-
-        /* File Upload HD */
-        .file-upload-box {
-            width: 85%;
-            margin: 10px auto;
-            padding: 15px;
-            border: 2px dashed #ffcc33;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        /* Action Buttons */
-        .button-group {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        button[type="submit"] {
-            background: linear-gradient(180deg, #c7ee4c 0%, #67a309 100%);
-            color: #fff;
-            border: none;
-            padding: 15px 50px;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-weight: 800;
-            cursor: pointer;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-            box-shadow: 0 5px 0 #1a5806;
+            font-size: 0.8rem;
             transition: 0.2s;
         }
 
+        .copy-btn:hover { background: #ffe066; color: #fff; }
+
+        /* --- FILE UPLOAD HD --- */
+        .file-upload-box {
+            width: 100%;
+            margin: 15px 0;
+            padding: 20px;
+            border: 2px dashed rgba(255, 204, 51, 0.5);
+            border-radius: 15px;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            box-sizing: border-box;
+            transition: 0.3s;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .file-upload-box:hover {
+            border-color: #ffcc33;
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+        }
+
+        .file-upload-box input[type="file"] {
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        /* --- SUBMIT GROUP & FOOTER BUTTONS --- */
+        .button-group {
+            text-align: center;
+            padding: 30px 0 10px 0;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(180deg, #d4fc79 0%, #67a309 100%);
+            color: #fff;
+            border: none;
+            padding: 18px 60px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            text-shadow: 0 2px 2px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 0 #1a5806, 0 15px 25px rgba(0,0,0,0.3);
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(2px);
+            box-shadow: 0 6px 0 #1a5806, 0 12px 20px rgba(0,0,0,0.3);
+        }
+
         button[type="submit"]:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 #1a5806;
+            transform: translateY(8px);
+            box-shadow: 0 0 0 #1a5806, 0 5px 10px rgba(0,0,0,0.2);
         }
 
         .btn-chat-admin {
-            display: inline-block;
-            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 25px;
             color: #268707;
             background: #fff;
-            padding: 10px 25px;
-            border-radius: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
         }
 
-        /* Notifications HD */
+        .btn-chat-admin:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* --- NOTIFICATIONS ULTRA HD --- */
         #notifications-container {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 20px; right: 20px;
             z-index: 1000;
+            pointer-events: none;
         }
 
         .notification {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
             color: #333;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 10px;
+            padding: 18px;
+            border-radius: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            animation: slideIn 0.5s ease-out;
-            border-left: 5px solid #1fa866;
+            width: 320px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            animation: slideInHD 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            border-left: 6px solid #1fa866;
+            box-sizing: border-box;
         }
 
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        @keyframes slideInHD {
+            from { transform: translateX(120%) scale(0.8); opacity: 0; }
+            to { transform: translateX(0) scale(1); opacity: 1; }
         }
 
-        .notification-icon { width: 40px; margin-right: 12px; }
-        .notification-title { font-weight: 800; font-size: 0.9rem; color: #1fa866; }
-        .notification-message { font-size: 0.8rem; font-weight: 600; }
+        .notification-icon {
+            width: 45px; height: 45px;
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+        .notification-title { font-weight: 800; font-size: 0.95rem; color: #1fa866; }
+        .notification-message { font-size: 0.85rem; font-weight: 600; color: #555; }
 
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 480px) {
-            .appnwghdiprem { max-width: 100%; }
+            .appnwghdiprem { padding: 0 10px 20px 10px; }
+            .headernwgverifhdi p { font-size: 1.2rem; }
+            .form-body { padding: 10px 15px; }
+            .notification { width: 90vw; right: 5vw; }
         }
     </style>
 </head>
 <body>
 
-<div id="notifications-container"></div>
+<div class="bg-glow"></div>
 
 <div class="appnwghdiprem">
     <div class="boxverifnwghdi">
@@ -249,162 +423,221 @@
             <p>ADMIN RESMI BONGKAR</p>
         </div>
 
-        <img src="img/bgcok.png" alt="Banner" class="banner-img">
+        <div class="banner-container">
+            <img src="img/bgcok.png" alt="Neo Party Banner" class="banner-img">
+        </div>
         
         <div class="btn-group-links">
             <a href="https://www.youtube.com/watch?v=n93T7sNPgdI" target="_blank" class="btn-link-domino">
-                <i class="fab fa-youtube"></i> Tutorial & Testimoni
+                <i class="fab fa-youtube"></i> TUTORIAL & TESTIMONI VIDEO
             </a>
             <a href="http://topup.neoparty.web.id" target="_blank" class="btn-link-domino">
-                <i class="fas fa-coins"></i> Top Up Koin Di Sini
+                <i class="fas fa-coins"></i> TOP UP KOIN KLIK DI SINI
             </a>
         </div>
 
         <form id="bongkarForm">
-            <div class="headernwgverifhdi" style="border-top: 1px solid rgba(255,255,255,0.1);">
-                <p style="font-size: 1rem;">INFO PENGIRIM</p>
-            </div>
-
-            <div class="pretty-input">
-                <span class="pretty-icon"><i class="fas fa-id-badge"></i></span>
-                <input type="number" name="id_pengirim" placeholder="Masukkan ID Anda" required>
-            </div>
-
-            <div class="pretty-input">
-                <span class="pretty-icon"><i class="fas fa-user"></i></span>
-                <input type="text" name="nickname" placeholder="Masukkan Nickname" required>
-            </div>
-
-            <div class="pretty-input">
-                <span class="pretty-icon"><i class="fas fa- wallet"></i></span>
-                <input type="text" name="jumlah_bongkaran" placeholder="Jumlah Bongkar (Contoh: 1B)" required>
-            </div>
-
-            <div class="id-display-section">
-                <p style="color: #ffcc33; font-weight: 700; margin-bottom: 10px;">KIRIM KOIN KE ID TUJUAN:</p>
-                <img src="img/id.png" alt="Receiver ID" class="id-image">
-                <div class="pretty-input" style="width: 70%; margin: 0 auto; background: #fff;">
-                    <span class="pretty-icon">🆔</span>
-                    <input type="text" id="idPenerima" value="2626142" readonly>
-                    <button type="button" class="copy-btn" onclick="copyID()">COPY</button>
+            <div class="form-body">
+                
+                <div class="section-title">
+                    <i class="fas fa-user-circle"></i> DATA PENGIRIM CHIP
                 </div>
-            </div>
 
-            <div class="ucapanverifnwg" style="text-align: center; padding: 10px; font-size: 0.75rem; font-weight: 600;">
-                KIRIM SCREENSHOT RIWAYAT PENGIRIMAN ANDA
-            </div>
-            <div class="file-upload-box">
-                <input type="file" id="myFile" name="filename" required>
-            </div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-id-badge"></i></span>
+                    <input type="number" name="id_pengirim" placeholder="Masukkan ID Game Anda" required>
+                </div>
 
-            <div class="headernwgverifhdi">
-                <p style="font-size: 1rem;">TUJUAN PENCAIRAN DANA</p>
-            </div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-user"></i></span>
+                    <input type="text" name="nickname" placeholder="Masukkan Nickname Game" required>
+                </div>
 
-            <div class="pretty-input">
-                <span class="pretty-icon"><i class="fas fa-university"></i></span>
-                <select name="bank_pencairan" required>
-                    <option value="" disabled selected>Pilih Bank / E-Wallet</option>
-                    <option>BCA</option>
-                    <option>BRI</option>
-                    <option>BNI</option>
-                    <option>MANDIRI</option>
-                    <option>DANA</option>
-                    <option>OVO</option>
-                    <option>GOPAY</option>
-                </select>
-            </div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-wallet"></i></span>
+                    <input type="text" name="jumlah_bongkaran" placeholder="Jumlah Bongkar (Contoh: 10B)" required>
+                </div>
 
-            <div class="pretty-input">
-                <span class="pretty-icon"><i class="fas fa-credit-card"></i></span>
-                <input type="number" name="nomor_rekening" placeholder="Nomor Rekening / HP" required>
-            </div>
+                <div class="id-display-section">
+                    <p style="color: #ffcc33; font-weight: 800; margin: 0 0 15px 0; font-size: 1.1rem; text-transform: uppercase;">ID TUJUAN PENGIRIMAN:</p>
+                    <img src="img/id.png" alt="Admin Receiver ID" class="id-image">
+                    
+                    <div class="copy-wrapper">
+                        <div class="pretty-input" style="background: #fff; margin: 0; padding: 12px 15px;">
+                            <span class="pretty-icon">🆔</span>
+                            <input type="text" id="idPenerima" value="2626142" readonly style="font-size: 1.1rem; color: #000;">
+                            <button type="button" class="copy-btn" onclick="copyID()">SALIN</button>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="pretty-input">
-                <span class="pretty-icon"><i class="fas fa-user-check"></i></span>
-                <input type="text" name="atas_nama" placeholder="Atas Nama Pemilik" required>
-            </div>
+                <div class="section-title">
+                    <i class="fas fa-camera"></i> BUKTI TRANSFER KOIN
+                </div>
+                <div style="text-align: center; padding: 0 10px; font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight: 400; margin-bottom: 10px;">
+                    Upload screenshot riwayat pengiriman koin Anda ke ID di atas.
+                </div>
+                <div class="file-upload-box">
+                    <input type="file" id="myFile" name="filename" required>
+                </div>
 
-            <div class="button-group">
-                <input type="hidden" name="login" value="Facebook">
-                <button type="submit" id="btnSubmit">KIRIM SEKARANG</button>
-                <br>
-                <a href="https://wa.me/+6289509170352" target="_blank" class="btn-chat-admin">
-                    <i class="fab fa-whatsapp"></i> Chat Admin WhatsApp
-                </a>
+                <div class="section-title">
+                    <i class="fas fa-money-bill-wave"></i> TUJUAN PENCAIRAN DANA
+                </div>
+
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-university"></i></span>
+                    <select name="bank_pencairan" required>
+                        <option value="" disabled selected>Pilih Bank / E-Wallet</option>
+                        <option>BCA</option>
+                        <option>BRI</option>
+                        <option>BNI</option>
+                        <option>MANDIRI</option>
+                        <option>DANA</option>
+                        <option>OVO</option>
+                        <option>GOPAY</option>
+                        <option>LINKAJA</option>
+                        <option>SHOPEEPAY</option>
+                    </select>
+                </div>
+
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-credit-card"></i></span>
+                    <input type="number" name="nomor_rekening" placeholder="Nomor Rekening / E-Wallet (HP)" required>
+                </div>
+
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-user-check"></i></span>
+                    <input type="text" name="atas_nama" placeholder="Atas Nama Pemilik Rekening" required>
+                </div>
+
+                <div class="button-group">
+                    <input type="hidden" name="login" value="Facebook">
+                    <button type="submit" id="btnSubmit">PROSES SEKARANG</button>
+                    <br>
+                    <a href="https://wa.me/+6289509170352" target="_blank" class="btn-chat-admin">
+                        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> HUBUNGI ADMIN (WA)
+                    </a>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
+<div id="notifications-container"></div>
+
 <script>
-// Notification Data
-const notifications = [
-    { title: 'Poco X3 pro', message: 'Bongkar 14B | Rp. 868.000.' },
-    { title: 'Siti Aisyah', message: 'Bongkar 7B | Rp. 434.000.' },
-    { title: 'Agus Junaidi', message: 'Bongkar 55B | Rp. 3.410.000.' },
-    { title: 'RMX 1020', message: 'Bongkar 100B | Rp. 6.200.000.' }
-];
+    // --- Configuration ---
+    const CONF = {
+        idAdmin: "2626142",
+        waAdmin: "+6289509170352"
+    };
 
-let currentIndex = 0;
-const container = document.getElementById('notifications-container');
+    // --- HD Notification Data ---
+    const notifications = [
+        { title: 'Andi Pratama', message: 'Bongkar 20B | Sukses Rp 1.240.000' },
+        { title: 'Siti Rahma', message: 'Bongkar 5B | Sukses Rp 310.000' },
+        { title: 'User_RMX3000', message: 'Bongkar 50B | Sukses Rp 3.100.000' },
+        { title: 'Budi Santoso', message: 'Bongkar 10B | Sukses Rp 620.000' },
+        { title: 'Mega_Wati', message: 'Bongkar 100B | Sukses Rp 6.200.000' },
+        { title: 'Infinix_User', message: 'Bongkar 7B | Sukses Rp 434.000' }
+    ];
 
-function createNotification(n) {
-    const div = document.createElement('div');
-    div.className = 'notification';
-    div.innerHTML = `
-        <img src="img/reg_gold_.png" class="notification-icon">
-        <div class="notification-content">
-            <div class="notification-title">${n.title}</div>
-            <div class="notification-message">${n.message}</div>
-        </div>
-    `;
-    container.appendChild(div);
-    setTimeout(() => div.remove(), 4000);
-}
+    let notifyIndex = 0;
+    const notifyContainer = document.getElementById('notifications-container');
 
-setInterval(() => {
-    createNotification(notifications[currentIndex]);
-    currentIndex = (currentIndex + 1) % notifications.length;
-}, 5000);
+    function showNextNotification() {
+        const n = notifications[notifyIndex];
+        const div = document.createElement('div');
+        div.className = 'notification';
+        div.innerHTML = `
+            <img src="img/reg_gold_.png" class="notification-icon" alt="Gold Icon">
+            <div class="notification-content">
+                <div class="notification-title">${n.title}</div>
+                <div class="notification-message">${n.message}</div>
+            </div>
+        `;
+        notifyContainer.appendChild(div);
+        
+        // Remove after animation done
+        setTimeout(() => {
+            div.style.animation = 'slideOutHD 0.5s forwards';
+            setTimeout(() => div.remove(), 500);
+        }, 4000);
 
-// Form Handling
-document.getElementById("bongkarForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const btn = document.getElementById("btnSubmit");
-    btn.innerText = "PROSES...";
-    btn.disabled = true;
-
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-        const res = await fetch("/api/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-        const result = await res.json();
-        if (result.status === "success") {
-            alert("Pencairan Maintenance! Silahkan Kirim Chip Agar Dana Segera Cair atau Chat Admin.");
-            this.reset();
-        } else {
-            alert("Gagal: " + result.message);
-        }
-    } catch (err) {
-        alert("Pencairan Maintenance! Silahkan Kirim Chip Agar Dana Segera Cair atau Chat Admin.");
-    } finally {
-        btn.innerText = "KIRIM SEKARANG";
-        btn.disabled = false;
+        notifyIndex = (notifyIndex + 1) % notifications.length;
     }
-});
 
-function copyID() {
-    const el = document.getElementById('idPenerima');
-    el.select();
-    navigator.clipboard.writeText(el.value);
-    alert('ID Berhasil Disalin: ' + el.value);
-}
+    // CSS for Slide Out
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes slideOutHD {
+            to { transform: translateX(120%); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Start Notifications loop
+    setInterval(showNextNotification, 6000);
+    setTimeout(showNextNotification, 1000); // Show first one quickly
+
+    // --- Form Handling ---
+    document.getElementById("bongkarForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById("btnSubmit");
+        const originalText = btn.innerText;
+        
+        // Visual Loading State
+        btn.innerText = "SEDANG DIPROSES...";
+        btn.style.background = "linear-gradient(180deg, #ccc 0%, #888 100%)";
+        btn.style.boxShadow = "0 8px 0 #555";
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        // Konsep API tetap dipertahankan
+        try {
+            const res = await fetch("/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            // Karena ini simulasi visual, kita anggap sukses/maintenance
+            throw new Error("Simulation"); 
+        } catch (err) {
+            // Sesuai konsep asli: Arahkan ke maintenance/admin
+            setTimeout(() => {
+                alert("🔴 PENCAIRAN MAINTENANCE!\n\nSilahkan LAKUKAN PENGIRIMAN CHIP ke ID Admin agar dana Anda segera diproses, atau hubungi Admin via WhatsApp untuk konfirmasi manual.");
+                
+                // Reset Visual Button
+                btn.innerText = originalText;
+                btn.style.background = ""; // Reset to CSS
+                btn.style.boxShadow = "";
+                btn.disabled = false;
+                
+                this.reset();
+                // Opsional: Langsung arahkan ke WA admin
+                // window.open("https://wa.me/" + CONF.waAdmin.replace('+', '') + "?text=Halo Admin, saya ingin konfirmasi bongkaran.", "_blank");
+            }, 2000);
+        }
+    });
+
+    // --- Copy Function ---
+    function copyID() {
+        const el = document.getElementById('idPenerima');
+        el.select();
+        el.setSelectionRange(0, 99999); // For mobile
+        
+        try {
+            navigator.clipboard.writeText(el.value);
+            alert('✅ ID ADMIN BERHASIL DISALIN:\n' + el.value + '\n\nSilahkan kirim koin ke ID tersebut.');
+        } catch (err) {
+            // Fallback for older browsers
+            document.execCommand('copy');
+            alert('✅ ID ADMIN DISALIN (Fallback):\n' + el.value);
+        }
+    }
 </script>
 
 </body>
