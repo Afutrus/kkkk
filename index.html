@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance - Neo Party</title>
+    <title>MAINTENANCE - Neo Party</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -33,7 +33,7 @@
             position: relative;
         }
 
-        /* Animated Background Particles */
+        /* Background Animasi */
         body::before {
             content: '';
             position: absolute;
@@ -50,13 +50,13 @@
             100% { transform: scale(1.2); opacity: 0.4; }
         }
 
-        /* Container Card */
+        /* Card Container */
         .maintenance-card {
             background: var(--glass-white);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 60px 30px;
+            padding: 50px 30px;
             border-radius: 40px;
             text-align: center;
             max-width: 500px;
@@ -70,14 +70,13 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        /* Icon Animation */
         .gear-container {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .fa-cog {
-            font-size: 80px;
+            font-size: 70px;
             color: var(--primary-glow);
             filter: drop-shadow(0 0 15px var(--primary-glow));
             animation: rotate 4s linear infinite;
@@ -88,35 +87,29 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Typography */
-        h1 {
+        /* Typography HD */
+        .main-title {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.8rem; /* Ukuran Besar */
+            line-height: 1;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+            text-shadow: 0 0 20px rgba(255, 204, 51, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .sub-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
             background: linear-gradient(to bottom, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        .status-badge {
-            background: rgba(255, 204, 51, 0.15);
-            color: var(--accent-gold);
-            padding: 5px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 25px;
-            border: 1px solid var(--accent-gold);
-            text-transform: uppercase;
-            animation: blink 2s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0.5; }
         }
 
         p {
@@ -130,11 +123,12 @@
             color: #fff;
             font-weight: 700;
             display: block;
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
-        /* WA Button HD */
+        /* Button WhatsApp */
         .btn-wa {
             display: flex;
             align-items: center;
@@ -158,34 +152,32 @@
             position: absolute;
             top: 0; left: -100%; width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: 0.5s;
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .btn-wa:hover {
-            transform: translateY(-5px) scale(1.03);
+            transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
         }
 
-        .btn-wa:hover::before {
-            left: 100%;
-        }
-
-        .fa-whatsapp {
-            font-size: 1.5rem;
-        }
-
-        /* Footer Info */
+        /* Footer */
         .footer-info {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.4);
-            letter-spacing: 1px;
+            margin-top: 40px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 1.8rem; }
-            p { font-size: 0.95rem; }
-            .btn-wa { padding: 18px 25px; font-size: 1rem; }
+            .main-title { font-size: 2.2rem; }
+            .sub-title { font-size: 1.4rem; }
+            p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -196,46 +188,22 @@
             <i class="fas fa-cog"></i>
         </div>
 
-        <div class="status-badge">System Under Maintenance</div>
-
-        <h1>MOHON MAAF</h1>
+        <h1 class="main-title">MAINTENANCE</h1>
+        <h2 class="sub-title">MOHON MAAF</h2>
         
         <p>
-            Sistem otomatis sedang dalam pembaharuan untuk meningkatkan layanan keamanan kami.
+            Sistem otomatis sedang dalam pembaharuan untuk meningkatkan layanan kami.
             <span class="highlight-text">Bongkar manual silahkan hubungi admin WA</span>
         </p>
 
         <a href="https://wa.me/6289509170352?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin%20secara%20manual." class="btn-wa">
-            <i class="fab fa-whatsapp"></i> HUBUNGI ADMIN SEKARANG
+            <i class="fab fa-whatsapp"></i> CHAT ADMIN SEKARANG
         </a>
 
         <div class="footer-info">
-            &copy; 2026 Neo Party
+            &copy; 2026 Neo party
         </div>
     </div>
 
-    <script>
-        document.addEventListener('click', (e) => {
-            const circle = document.createElement('div');
-            circle.style.position = 'fixed';
-            circle.style.width = '10px';
-            circle.style.height = '10px';
-            circle.style.background = 'var(--primary-glow)';
-            circle.style.borderRadius = '50%';
-            circle.style.left = e.clientX + 'px';
-            circle.style.top = e.clientY + 'px';
-            circle.style.pointerEvents = 'none';
-            circle.style.boxShadow = '0 0 10px var(--primary-glow)';
-            circle.style.transition = 'all 0.8s ease-out';
-            document.body.appendChild(circle);
-
-            setTimeout(() => {
-                circle.style.transform = 'scale(5)';
-                circle.style.opacity = '0';
-            }, 10);
-            
-            setTimeout(() => circle.remove(), 800);
-        });
-    </script>
 </body>
 </html>
