@@ -3,111 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pencairan Koin - Admin Resmi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Arial&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Pencairan Neo Party</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         body {
-            background-color: #f4f7f6;
-            color: #333;
-            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #87e2f3; /* Biru Muda khas Neo Party */
+            background-image: linear-gradient(180deg, #87e2f3 0%, #ffffff 100%);
+            font-family: 'Quicksand', sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             width: 90%;
             max-width: 400px;
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 5px solid #ffffff;
             text-align: center;
-            border-top: 5px solid #25D366; /* Warna Hijau WA */
         }
 
-        h2 {
+        .header {
+            background: #39b5e0; /* Biru Header */
+            padding: 20px;
+            color: white;
+            font-weight: 700;
             font-size: 1.2rem;
-            color: #1a5806;
-            margin-bottom: 20px;
-            line-height: 1.4;
             text-transform: uppercase;
         }
 
-        .info-box {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            text-align: left;
-            border-left: 3px solid #ddd;
+        .content {
+            padding: 25px;
         }
 
-        .info-box p {
-            margin: 8px 0;
-            font-size: 0.95rem;
-            color: #555;
+        h2 {
+            color: #2b7a91;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* List Gaya Keuntungan APK */
+        .info-list {
+            background: #e1f5f9;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
             display: flex;
             align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: #2b7a91;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .info-box p i {
-            color: #25D366;
-            margin-right: 10px;
-            width: 15px;
+        .info-item:last-child { border-bottom: none; }
+
+        .info-item i {
+            color: #39b5e0;
+            margin-right: 12px;
+            font-size: 0.8rem;
         }
 
-        .price-tag {
-            font-weight: bold;
-            color: #d32f2f; /* Warna Merah untuk Harga */
-            font-size: 1.1rem;
+        .price-box {
+            background: #fff9e6;
+            padding: 10px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px dashed #ff9800;
         }
 
+        .price-text {
+            color: #e67e22;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Tombol Oranye Khas Download APK */
         .btn-wa {
             display: block;
-            background-color: #25D366;
+            background: linear-gradient(to bottom, #ffbb33 0%, #ff8800 100%);
             color: white;
             text-decoration: none;
             padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: background 0.3s;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 0 #cc6600, 0 8px 15px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            margin-top: 10px;
         }
 
-        .btn-wa:hover {
-            background-color: #128C7E;
+        .btn-wa:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #cc6600;
         }
 
         .footer {
-            margin-top: 20px;
+            padding: 15px;
             font-size: 0.8rem;
-            color: #aaa;
+            color: #999;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Pencairan Koin Saat Ini Melalui WhatsApp Admin</h2>
-        
-        <div class="info-box">
-            <p><i class="fas fa-tag"></i> Harga: <span class="price-tag">Rp 62.000 / B</span></p>
-            <p><i class="fas fa-clock"></i> Admin Online 24 Jam Nonstop</p>
-            <p><i class="fas fa-shield-alt"></i> 100% Terjamin Amanah</p>
-            <p><i class="fas fa-bolt"></i> Proses 1 Menit Langsung Transfer</p>
+        <div class="header">
+            Pencairan Koin Admin
         </div>
 
-        <a href="https://wa.me/6289509170352?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
-            <i class="fab fa-whatsapp"></i> CHAT ADMIN SEKARANG
-        </a>
+        <div class="content">
+            <h2>PENCAIRAN SAAT INI MELALUI<br>WHATSAPP ADMIN</h2>
+
+            <div class="price-box">
+                <span class="price-text">HARGA PER B: Rp 62.000</span>
+            </div>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <i class="fas fa-star"></i> Admin Online 24 Jam
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-star"></i> 100% Terjamin Amanah
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-star"></i> 1 Menit Dana Langsung Cair
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-star"></i> Tanpa Biaya Admin / Fee
+                </div>
+            </div>
+
+            <a href="https://wa.me/6289509170352?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
+                HUBUNGI ADMIN
+            </a>
+        </div>
 
         <div class="footer">
-            Layanan Resmi Neo Party
+            Ayo Gabung Sekarang!
         </div>
     </div>
 
