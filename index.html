@@ -3,211 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Withdraw Neo Party - Admin Resmi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Neo Party - Withdraw HD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --neo-blue: #39b5e0;
-            --neo-bg: #87e2f3;
+            --glass-bg: rgba(26, 34, 53, 0.85);
+            --neon-blue: #00f2ff;
             --wa-green: #25D366;
-            --dark-card: #1a2235;
+            --orange-btn: linear-gradient(180deg, #ffbb33 0%, #ff8800 100%);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: var(--neo-bg) linear-gradient(180deg, var(--neo-bg) 0%, #ffffff 100%);
+            background: #87e2f3 radial-gradient(circle at top, #00d2ff 0%, #87e2f3 100%);
             font-family: 'Quicksand', sans-serif;
-            margin: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 20px 0;
             min-height: 100vh;
+            padding: 20px 0;
         }
 
-        /* --- Main Withdraw Card --- */
-        .container {
+        /* --- CONTAINER UTAMA HD --- */
+        .main-wrapper {
             width: 92%;
-            max-width: 420px;
-            background: #ffffff;
-            border-radius: 25px;
+            max-width: 450px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- HEADER BAGIAN ATAS --- */
+        .withdraw-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px 25px;
             text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .header {
-            background: var(--neo-blue);
-            padding: 15px;
-            color: white;
-            font-weight: 700;
+        .withdraw-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--neon-blue);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .content { padding: 25px; }
-
-        h2 { color: #2b7a91; font-size: 1.1rem; margin-bottom: 20px; }
-
-        .price-box {
-            background: #fff9e6;
-            padding: 12px;
-            border-radius: 12px;
             margin-bottom: 20px;
-            border: 2px dashed #ff9800;
-            color: #e67e22;
-            font-weight: 700;
-            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
         }
 
+        .main-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        /* Price Box HD */
+        .price-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px dashed #ff9800;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 25px;
+            color: #ffbb33;
+            font-size: 1.4rem;
+            font-weight: 800;
+            box-shadow: inset 0 0 15px rgba(255, 152, 0, 0.1);
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 0 auto 30px;
+            display: inline-block;
+        }
+
+        .feature-item {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item i {
+            color: var(--neon-blue);
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Hubungi Admin Button */
         .btn-wa {
-            display: block;
-            background: linear-gradient(to bottom, #ffbb33 0%, #ff8800 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--orange-btn);
             color: white;
             text-decoration: none;
-            padding: 15px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 0 #cc6600;
-            margin-top: 10px;
-        }
-
-        /* --- Testimoni Section --- */
-        .testi-section {
-            width: 92%;
-            max-width: 420px;
-            background: var(--dark-card);
-            border-radius: 20px;
             padding: 20px;
-            box-sizing: border-box;
-            color: white;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(255, 136, 0, 0.3);
+            transition: 0.3s;
         }
 
-        .testi-header {
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 136, 0, 0.5);
+        }
+
+        /* --- TESTIMONI BAGIAN BAWAH (MENYATU) --- */
+        .testi-container {
+            padding: 30px 25px;
+        }
+
+        .testi-title {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 12px;
+            color: white;
             font-size: 1.2rem;
             font-weight: 700;
+            margin-bottom: 25px;
         }
 
-        .testi-header i {
-            background: #a33eb3;
-            padding: 8px;
-            border-radius: 10px;
+        .testi-title i {
+            color: #a33eb3;
+            font-size: 1.4rem;
         }
 
         .review-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 18px;
             margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: 0.3s;
         }
 
         .review-user {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        .player-name { 
-            font-weight: bold; 
-            color: #39b5e0; 
-            font-size: 0.95rem; 
+        .player-name {
+            color: var(--neon-blue);
+            font-weight: 700;
+            font-size: 1rem;
         }
 
         .stars { color: #ffcc33; font-size: 0.8rem; }
 
         .review-text {
-            font-size: 0.85rem;
-            color: #ccc;
-            margin: 5px 0 10px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
 
-        .review-time-bar {
-            height: 3px;
-            background: #25D366;
-            width: 40px;
-            border-radius: 10px;
-            margin-bottom: 5px;
+        .time-info {
+            border-top: 2px solid var(--wa-green);
+            padding-top: 8px;
+            color: var(--wa-green);
+            font-size: 0.75rem;
+            font-weight: 800;
         }
 
-        .time-text {
-            font-size: 0.7rem;
-            color: #25D366;
-            font-weight: bold;
+        @media (max-width: 480px) {
+            .withdraw-header h1 { font-size: 1.1rem; }
+            .price-box { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">Withdraw Neo Party</div>
-        <div class="content">
-            <h2>PENCAIRAN KOIN SAAT INI MELALUI<br>WHATSAPP ADMIN</h2>
-            <div class="price-box">Withdraw : Rp 62.000 / B</div>
-            <p style="font-size: 0.9rem; color: #666; text-align: left;">
-                <i class="fas fa-check-circle" style="color: var(--neo-blue)"></i> Admin Online 24 Jam<br>
-                <i class="fas fa-check-circle" style="color: var(--neo-blue)"></i> 100% Terjamin Amanah<br>
-                <i class="fas fa-check-circle" style="color: var(--neo-blue)"></i> Proses 1 Menit Langsung Transfer
-            </p>
+    <div class="main-wrapper">
+        <div class="withdraw-header">
+            <h1>Withdraw Neo Party</h1>
+            
+            <div class="main-title">
+                PENCAIRAN KOIN SAAT INI MELALUI<br>WHATSAPP ADMIN
+            </div>
+
+            <div class="price-box">
+                Withdraw : Rp 62.000 / B
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Admin Online 24 Jam</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> 100% Terjamin Amanah</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Proses 1 Menit Langsung Transfer</div>
+            </div>
+
             <a href="https://wa.me/6289509170352?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
-                <i class="fab fa-whatsapp"></i> HUBUNGI ADMIN
+                <i class="fab fa-whatsapp" style="font-size: 1.6rem;"></i> HUBUNGI ADMIN
             </a>
         </div>
-    </div>
 
-    <div class="testi-section">
-        <div class="testi-header">
-            <i class="fas fa-comment-dots"></i> Ulasan Pembeli
+        <div class="testi-container">
+            <div class="testi-title">
+                <i class="fas fa-comments"></i> Ulasan Pembeli
+            </div>
+
+            <div id="review-list">
+                </div>
         </div>
-        <div id="testi-container"></div>
     </div>
 
     <script>
-        const names = [
-            "Player_1895", "NandaHoreg", "Pakistan", "Sultan_Domino", 
-            "JackpotHunter", "RajaBongkar", "WongPusat", "Mbak_Dewi", 
-            "CuanTerus", "PejuangB", "Leon_Gacor", "Hoki_Selalu"
+        const players = ["Pakistan", "Hoki_Selalu", "PejuangB", "NandaHoreg", "Player_1895", "SultanDomino"];
+        const texts = [
+            "Adminnya ramah kalau ada kendala langsung dibantu.",
+            "Udah order berkali-kali selalu amanah. Jozzz.",
+            "Top markotop koinnya bosku.",
+            "Bongkar di sini emang paling kilat, rekomen!",
+            "Terjamin amanah, dana langsung cair hitungan menit.",
+            "Makin gacor bongkar di sini, makasih admin."
         ];
 
-        const reviewsData = [
-            { text: "Adminnya ramah kalau ada kendala langsung dibantu.", stars: 5 },
-            { text: "Udah order berkali-kali selalu amanah. Jozzz.", stars: 5 },
-            { text: "Top markotop koinnya bosku.", stars: 4 },
-            { text: "Terbaik pokoke Agen Royal Dream.", stars: 5 },
-            { text: "Murah meriah muntah koinnya.", stars: 4 },
-            { text: "Bongkar di sini emang paling kilat, rekomen!", stars: 5 }
-        ];
+        const list = document.getElementById('review-list');
 
-        const container = document.getElementById('testi-container');
-
-        // Mengacak urutan nama
-        const shuffledNames = names.sort(() => 0.5 - Math.random());
-
-        reviewsData.forEach((rev, index) => {
-            const randomMin = Math.floor(Math.random() * 58) + 1;
-            const playerName = shuffledNames[index] || "Player_" + Math.floor(Math.random() * 9999);
-            
+        for (let i = 0; i < 4; i++) {
+            const time = Math.floor(Math.random() * 55) + 2;
             const card = document.createElement('div');
             card.className = 'review-card';
             card.innerHTML = `
                 <div class="review-user">
-                    <span class="player-name">${playerName}</span>
-                    <span class="stars">${'★'.repeat(rev.stars)}${'☆'.repeat(5-rev.stars)}</span>
+                    <span class="player-name">${players[i]}</span>
+                    <span class="stars">★★★★★</span>
                 </div>
-                <p class="review-text">"${rev.text}"</p>
-                <div class="review-time-bar"></div>
-                <div class="time-text">${randomMin} Menit yang lalu</div>
+                <p class="review-text">"${texts[i]}"</p>
+                <div class="time-info">${time} Menit yang lalu</div>
             `;
-            container.appendChild(card);
-        });
+            list.appendChild(card);
+        }
     </script>
-
 </body>
 </html>
