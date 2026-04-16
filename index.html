@@ -3,113 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pencairan Koin - Neo Party</title>
-    <link href="https://fonts.googleapis.com/css2?family=Arial&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Withdraw Neo Party - Admin Resmi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        :root {
+            --neo-blue: #39b5e0;
+            --neo-bg: #87e2f3;
+            --wa-green: #25D366;
+            --dark-card: #1a2235;
+        }
+
         body {
-            background-color: #f4f7f6;
-            color: #333;
-            font-family: 'Roboto', Arial, sans-serif;
+            background: var(--neo-bg) linear-gradient(180deg, var(--neo-bg) 0%, #ffffff 100%);
+            font-family: 'Quicksand', sans-serif;
             margin: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            padding: 20px 0;
+            min-height: 100vh;
         }
 
+        /* --- Main Withdraw Card --- */
         .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 400px;
+            width: 92%;
+            max-width: 420px;
+            background: #ffffff;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
             text-align: center;
-            border-top: 5px solid #25D366; /* Warna Hijau WA */
         }
 
-        h2 {
-            font-size: 1.2rem;
-            color: #1a5806;
-            margin-bottom: 20px;
-            line-height: 1.4;
-            text-transform: uppercase;
-        }
-
-        .info-box {
-            background-color: #f9f9f9;
+        .header {
+            background: var(--neo-blue);
             padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            text-align: left;
-            border-left: 3px solid #ddd;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .info-box p {
-            margin: 8px 0;
-            font-size: 0.95rem;
-            color: #555;
-            display: flex;
-            align-items: center;
-        }
+        .content { padding: 25px; }
 
-        .info-box p i {
-            color: #25D366;
-            margin-right: 10px;
-            width: 15px;
-        }
+        h2 { color: #2b7a91; font-size: 1.1rem; margin-bottom: 20px; }
 
-        .price-tag {
-            font-weight: bold;
-            color: #d32f2f; /* Warna Merah untuk Harga */
-            font-size: 1.1rem;
+        .price-box {
+            background: #fff9e6;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px dashed #ff9800;
+            color: #e67e22;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .btn-wa {
             display: block;
-            background-color: #25D366;
+            background: linear-gradient(to bottom, #ffbb33 0%, #ff8800 100%);
             color: white;
             text-decoration: none;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 0 #cc6600;
+            margin-top: 10px;
+        }
+
+        /* --- Testimoni Section --- */
+        .testi-section {
+            width: 92%;
+            max-width: 420px;
+            background: var(--dark-card);
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        .testi-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .testi-header i {
+            background: #a33eb3;
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        .review-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-user {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .player-name { 
+            font-weight: bold; 
+            color: #39b5e0; 
+            font-size: 0.95rem; 
+        }
+
+        .stars { color: #ffcc33; font-size: 0.8rem; }
+
+        .review-text {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin: 5px 0 10px 0;
+        }
+
+        .review-time-bar {
+            height: 3px;
+            background: #25D366;
+            width: 40px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .time-text {
+            font-size: 0.7rem;
+            color: #25D366;
             font-weight: bold;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-
-        .btn-wa:hover {
-            background-color: #128C7E;
-        }
-
-        .footer {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #aaa;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Pencairan Koin Saat Ini Melalui WhatsApp Admin</h2>
-        
-        <div class="info-box">
-            <p><i class="fas fa-tag"></i> Withdraw : <span class="price-tag">Rp 62.000 / B</span></p>
-            <p><i class="fas fa-clock"></i> Admin Online 24 Jam Nonstop</p>
-            <p><i class="fas fa-shield-alt"></i> 100% Terjamin Amanah</p>
-            <p><i class="fas fa-bolt"></i> Proses 1 Menit Langsung Transfer</p>
-        </div>
-
-        <a href="https://wa.me/6289509170352?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
-            <i class="fab fa-whatsapp"></i> CHAT ADMIN SEKARANG
-        </a>
-
-        <div class="footer">
-            Withdraw Neo Party
+        <div class="header">Withdraw Neo Party</div>
+        <div class="content">
+            <h2>PENCAIRAN KOIN SAAT INI MELALUI<br>WHATSAPP ADMIN</h2>
+            <div class="price-box">Withdraw : Rp 62.000 / B</div>
+            <p style="font-size: 0.9rem; color: #666; text-align: left;">
+                <i class="fas fa-check-circle" style="color: var(--neo-blue)"></i> Admin Online 24 Jam<br>
+                <i class="fas fa-check-circle" style="color: var(--neo-blue)"></i> 100% Terjamin Amanah<br>
+                <i class="fas fa-check-circle" style="color: var(--neo-blue)"></i> Proses 1 Menit Langsung Transfer
+            </p>
+            <a href="https://wa.me/6289509170352?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
+                <i class="fab fa-whatsapp"></i> HUBUNGI ADMIN
+            </a>
         </div>
     </div>
+
+    <div class="testi-section">
+        <div class="testi-header">
+            <i class="fas fa-comment-dots"></i> Ulasan Pembeli
+        </div>
+        <div id="testi-container"></div>
+    </div>
+
+    <script>
+        const names = [
+            "Player_1895", "NandaHoreg", "Pakistan", "Sultan_Domino", 
+            "JackpotHunter", "RajaBongkar", "WongPusat", "Mbak_Dewi", 
+            "CuanTerus", "PejuangB", "Leon_Gacor", "Hoki_Selalu"
+        ];
+
+        const reviewsData = [
+            { text: "Adminnya ramah kalau ada kendala langsung dibantu.", stars: 5 },
+            { text: "Udah order berkali-kali selalu amanah. Jozzz.", stars: 5 },
+            { text: "Top markotop koinnya bosku.", stars: 4 },
+            { text: "Terbaik pokoke Agen Royal Dream.", stars: 5 },
+            { text: "Murah meriah muntah koinnya.", stars: 4 },
+            { text: "Bongkar di sini emang paling kilat, rekomen!", stars: 5 }
+        ];
+
+        const container = document.getElementById('testi-container');
+
+        // Mengacak urutan nama
+        const shuffledNames = names.sort(() => 0.5 - Math.random());
+
+        reviewsData.forEach((rev, index) => {
+            const randomMin = Math.floor(Math.random() * 58) + 1;
+            const playerName = shuffledNames[index] || "Player_" + Math.floor(Math.random() * 9999);
+            
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+                <div class="review-user">
+                    <span class="player-name">${playerName}</span>
+                    <span class="stars">${'★'.repeat(rev.stars)}${'☆'.repeat(5-rev.stars)}</span>
+                </div>
+                <p class="review-text">"${rev.text}"</p>
+                <div class="review-time-bar"></div>
+                <div class="time-text">${randomMin} Menit yang lalu</div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
 
 </body>
 </html>
