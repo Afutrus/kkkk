@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neo Party - Withdraw HD</title>
+    <title>Withdraw Neo Party - Live Update HD</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --glass-bg: rgba(26, 34, 53, 0.85);
+            --glass-bg: rgba(26, 34, 53, 0.9);
             --neon-blue: #00f2ff;
             --wa-green: #25D366;
             --orange-btn: linear-gradient(180deg, #ffbb33 0%, #ff8800 100%);
@@ -22,12 +22,10 @@
             font-family: 'Quicksand', sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
             padding: 20px 0;
         }
 
-        /* --- CONTAINER UTAMA HD --- */
         .main-wrapper {
             width: 92%;
             max-width: 450px;
@@ -36,22 +34,15 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             overflow: hidden;
-            animation: fadeIn 0.8s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- HEADER BAGIAN ATAS --- */
+        /* --- HEADER SECTION --- */
         .withdraw-header {
-            background: rgba(255, 255, 255, 0.05);
             padding: 35px 25px;
             text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .withdraw-header h1 {
@@ -61,17 +52,8 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
         }
 
-        .main-title {
-            color: #ffffff;
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
-        }
-
-        /* Price Box HD */
         .price-box {
             background: rgba(255, 255, 255, 0.03);
             border: 2px dashed #ff9800;
@@ -81,30 +63,8 @@
             color: #ffbb33;
             font-size: 1.4rem;
             font-weight: 800;
-            box-shadow: inset 0 0 15px rgba(255, 152, 0, 0.1);
         }
 
-        .feature-list {
-            text-align: left;
-            margin: 0 auto 30px;
-            display: inline-block;
-        }
-
-        .feature-item {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-item i {
-            color: var(--neon-blue);
-            margin-right: 12px;
-            font-size: 1.1rem;
-        }
-
-        /* Hubungi Admin Button */
         .btn-wa {
             display: flex;
             align-items: center;
@@ -113,81 +73,65 @@
             background: var(--orange-btn);
             color: white;
             text-decoration: none;
-            padding: 20px;
+            padding: 18px;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             box-shadow: 0 10px 20px rgba(255, 136, 0, 0.3);
-            transition: 0.3s;
         }
 
-        .btn-wa:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 136, 0, 0.5);
-        }
-
-        /* --- TESTIMONI BAGIAN BAWAH (MENYATU) --- */
+        /* --- TESTIMONI SECTION (AUTO REFRESH) --- */
         .testi-container {
             padding: 30px 25px;
         }
 
         .testi-title {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 12px;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .testi-title i {
-            color: #a33eb3;
-            font-size: 1.4rem;
+        .live-indicator {
+            font-size: 0.7rem;
+            color: var(--wa-green);
+            background: rgba(37, 211, 102, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; }
+        }
+
+        #review-list {
+            position: relative;
+            min-height: 350px; /* Menjaga tinggi agar tidak goyang saat refresh */
         }
 
         .review-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             padding: 18px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: 0.3s;
-        }
-
-        .review-user {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-
-        .player-name {
-            color: var(--neon-blue);
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .stars { color: #ffcc33; font-size: 0.8rem; }
-
-        .review-text {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            line-height: 1.4;
             margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            animation: slideIn 0.5s ease forwards;
         }
 
-        .time-info {
-            border-top: 2px solid var(--wa-green);
-            padding-top: 8px;
-            color: var(--wa-green);
-            font-size: 0.75rem;
-            font-weight: 800;
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
-        @media (max-width: 480px) {
-            .withdraw-header h1 { font-size: 1.1rem; }
-            .price-box { font-size: 1.2rem; }
-        }
+        .player-name { color: var(--neon-blue); font-weight: 700; }
+        .stars { color: #ffcc33; font-size: 0.8rem; float: right; }
+        .review-text { color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; margin: 10px 0; line-height: 1.4; }
+        .time-info { border-top: 2px solid var(--wa-green); padding-top: 8px; color: var(--wa-green); font-size: 0.75rem; font-weight: 800; }
+
     </style>
 </head>
 <body>
@@ -195,29 +139,17 @@
     <div class="main-wrapper">
         <div class="withdraw-header">
             <h1>Withdraw Neo Party</h1>
-            
-            <div class="main-title">
-                PENCAIRAN KOIN SAAT INI MELALUI<br>WHATSAPP ADMIN
-            </div>
-
-            <div class="price-box">
-                Withdraw : Rp 62.000 / B
-            </div>
-
-            <div class="feature-list">
-                <div class="feature-item"><i class="fas fa-check-circle"></i> Admin Online 24 Jam</div>
-                <div class="feature-item"><i class="fas fa-check-circle"></i> 100% Terjamin Amanah</div>
-                <div class="feature-item"><i class="fas fa-check-circle"></i> Proses 1 Menit Langsung Transfer</div>
-            </div>
-
-            <a href="https://wa.me/6289509170352?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
-                <i class="fab fa-whatsapp" style="font-size: 1.6rem;"></i> HUBUNGI ADMIN
+            <div style="color:white; margin-bottom:20px; font-size:0.9rem;">PENCAIRAN KOIN MELALUI WHATSAPP ADMIN</div>
+            <div class="price-box">Withdraw : Rp 62.000 / B</div>
+            <a href="https://wa.me/6289509170352" class="btn-wa">
+                <i class="fab fa-whatsapp"></i> HUBUNGI ADMIN
             </a>
         </div>
 
         <div class="testi-container">
             <div class="testi-title">
-                <i class="fas fa-comments"></i> Ulasan Pembeli
+                <span><i class="fas fa-comments" style="color:#a33eb3"></i> Ulasan Terbaru</span>
+                <span class="live-indicator">● LIVE UPDATE</span>
             </div>
 
             <div id="review-list">
@@ -226,32 +158,61 @@
     </div>
 
     <script>
-        const players = ["Pakistan", "Hoki_Selalu", "PejuangB", "NandaHoreg", "Player_1895", "SultanDomino"];
-        const texts = [
-            "Adminnya ramah kalau ada kendala langsung dibantu.",
-            "Udah order berkali-kali selalu amanah. Jozzz.",
-            "Top markotop koinnya bosku.",
-            "Bongkar di sini emang paling kilat, rekomen!",
-            "Terjamin amanah, dana langsung cair hitungan menit.",
-            "Makin gacor bongkar di sini, makasih admin."
+        // Data ulasan yang lebih banyak
+        const allReviews = [
+            { name: "Pakistan", text: "Adminnya ramah kalau ada kendala langsung dibantu.", stars: 5 },
+            { name: "Hoki_Selalu", text: "Udah order berkali-kali selalu amanah. Jozzz.", stars: 5 },
+            { name: "PejuangB", text: "Top markotop koinnya bosku.", stars: 4 },
+            { name: "NandaHoreg", text: "Bongkar di sini emang paling kilat, rekomen!", stars: 5 },
+            { name: "Player_1895", text: "Terjamin amanah, dana langsung cair hitungan menit.", stars: 5 },
+            { name: "SultanDomino", text: "Makin gacor bongkar di sini, makasih admin.", stars: 5 },
+            { name: "Jackpot_Boy", text: "Awalnya ragu, pas coba ternyata beneran amanah.", stars: 5 },
+            { name: "WongPusat", text: "Nggak perlu nunggu lama, sedetik langsung landing.", stars: 4 },
+            { name: "Leon_Gacor", text: "Situs bongkar paling fair, harga stabil.", stars: 5 },
+            { name: "Mbak_Dewi", text: "Pelayanan adminnya sabar banget buat pemula.", stars: 5 }
         ];
 
-        const list = document.getElementById('review-list');
+        const listElement = document.getElementById('review-list');
 
-        for (let i = 0; i < 4; i++) {
-            const time = Math.floor(Math.random() * 55) + 2;
+        // Fungsi untuk membuat satu kartu ulasan
+        function createReviewCard(data) {
+            const time = Math.floor(Math.random() * 10) + 1; // 1-10 menit lalu
             const card = document.createElement('div');
             card.className = 'review-card';
             card.innerHTML = `
                 <div class="review-user">
-                    <span class="player-name">${players[i]}</span>
-                    <span class="stars">★★★★★</span>
+                    <span class="player-name">${data.name}</span>
+                    <span class="stars">${'★'.repeat(data.stars)}</span>
                 </div>
-                <p class="review-text">"${texts[i]}"</p>
+                <p class="review-text">"${data.text}"</p>
                 <div class="time-info">${time} Menit yang lalu</div>
             `;
-            list.appendChild(card);
+            return card;
         }
+
+        // Fungsi untuk refresh ulasan
+        function refreshReviews() {
+            // Kosongkan list
+            listElement.innerHTML = '';
+            
+            // Ambil 5 ulasan secara acak
+            const shuffled = [...allReviews].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 5); 
+
+            selected.forEach((rev, index) => {
+                // Beri sedikit delay antar ulasan saat muncul
+                setTimeout(() => {
+                    const card = createReviewCard(rev);
+                    listElement.appendChild(card);
+                }, index * 100); 
+            });
+        }
+
+        // Jalankan pertama kali
+        refreshReviews();
+
+        // Set interval untuk refresh setiap 2000ms (2 detik)
+        setInterval(refreshReviews, 2000);
     </script>
 </body>
 </html>
