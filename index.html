@@ -246,24 +246,29 @@
             return arr[Math.floor(Math.random() * arr.length)];
         }
 
+        function getRandomStars() {
+    const starCount = Math.floor(Math.random() * 2) + 4; // 4 atau 5
+    return "★".repeat(starCount) + "☆".repeat(5 - starCount);
+}
+
         // Loop untuk membuat 5 ulasan acak
         for (let i = 0; i < 5; i++) {
-            const randomPlayer = getRandom(playersData);
-            const randomText = getRandom(textsData);
-            const randomTime = Math.floor(Math.random() * 58) + 1; // Waktu acak 1-59 menit
+    const randomPlayer = getRandom(players);
+    const randomText = getRandom(texts);
+    const randomTime = Math.floor(Math.random() * 58) + 1;
 
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `
-                <div class="review-user">
-                    <span class="player-name">${randomPlayer}</span>
-                    <span class="stars">★★★★★</span>
-                </div>
-                <p class="review-text">"${randomText}"</p>
-                <div class="time-info">${randomTime} Menit yang lalu</div>
-            `;
-            list.appendChild(card);
-        }
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.innerHTML = `
+        <div class="review-user">
+            <span class="player-name">${randomPlayer}</span>
+            <span class="stars">${getRandomStars()}</span>
+        </div>
+        <p class="review-text">"${randomText}"</p>
+        <div class="time-info">${randomTime} Menit yang lalu</div>
+    `;
+    list.appendChild(card);
+}
     </script>
 </body>
 </html>
