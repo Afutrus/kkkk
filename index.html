@@ -27,7 +27,6 @@
             padding: 20px 0;
         }
 
-        /* --- CONTAINER UTAMA HD --- */
         .main-wrapper {
             width: 92%;
             max-width: 450px;
@@ -46,7 +45,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HEADER BAGIAN ATAS --- */
         .withdraw-header {
             background: rgba(255, 255, 255, 0.05);
             padding: 35px 25px;
@@ -60,8 +58,23 @@
             font-size: 1.3rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        /* --- STYLE LOGO HD --- */
+        .logo-mid {
+            width: 80px; /* Sesuaikan ukuran logo */
+            height: auto;
+            margin: 10px auto 20px;
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .main-title {
@@ -69,9 +82,9 @@
             font-size: 1.1rem;
             line-height: 1.5;
             margin-bottom: 25px;
+            font-weight: 700;
         }
 
-        /* Price Box HD */
         .price-box {
             background: rgba(255, 255, 255, 0.03);
             border: 2px dashed #ff9800;
@@ -104,7 +117,6 @@
             font-size: 1.1rem;
         }
 
-        /* Hubungi Admin Button */
         .btn-wa {
             display: flex;
             align-items: center;
@@ -126,68 +138,15 @@
             box-shadow: 0 15px 30px rgba(255, 136, 0, 0.5);
         }
 
-        /* --- TESTIMONI BAGIAN BAWAH (MENYATU) --- */
-        .testi-container {
-            padding: 30px 25px;
-        }
-
-        .testi-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-
-        .testi-title i {
-            color: #a33eb3;
-            font-size: 1.4rem;
-        }
-
-        .review-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 18px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: 0.3s;
-        }
-
-        .review-user {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-
-        .player-name {
-            color: var(--neon-blue);
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
+        .testi-container { padding: 30px 25px; }
+        .testi-title { display: flex; align-items: center; gap: 12px; color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 25px; }
+        .testi-title i { color: #a33eb3; font-size: 1.4rem; }
+        .review-card { background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 18px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.03); }
+        .review-user { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .player-name { color: var(--neon-blue); font-weight: 700; font-size: 1rem; }
         .stars { color: #ffcc33; font-size: 0.8rem; }
-
-        .review-text {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .time-info {
-            border-top: 2px solid var(--wa-green);
-            padding-top: 8px;
-            color: var(--wa-green);
-            font-size: 0.75rem;
-            font-weight: 800;
-        }
-
-        @media (max-width: 480px) {
-            .withdraw-header h1 { font-size: 1.1rem; }
-            .price-box { font-size: 1.2rem; }
-        }
+        .review-text { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; line-height: 1.4; margin-bottom: 12px; }
+        .time-info { border-top: 2px solid var(--wa-green); padding-top: 8px; color: var(--wa-green); font-size: 0.75rem; font-weight: 800; }
     </style>
 </head>
 <body>
@@ -196,6 +155,8 @@
         <div class="withdraw-header">
             <h1>Withdraw Neo Party</h1>
             
+            <img src="logo.png" alt="Logo Neo Party" class="logo-mid">
+
             <div class="main-title">
                 PENCAIRAN KOIN SAAT INI MELALUI<br>WHATSAPP ADMIN
             </div>
@@ -219,9 +180,7 @@
             <div class="testi-title">
                 <i class="fas fa-comments"></i> Ulasan Pembeli
             </div>
-
-            <div id="review-list">
-                </div>
+            <div id="review-list"></div>
         </div>
     </div>
 
