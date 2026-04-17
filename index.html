@@ -220,6 +220,67 @@
             cursor: pointer;
             color: #1a2235;
         }
+
+        /* --- STYLES UNTUK NOTIFIKASI TRANSAKSI (TOAST) --- */
+        .toast-notif {
+            background: rgba(20, 25, 35, 0.95);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: translateX(-120%);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-family: 'Quicksand', sans-serif;
+            min-width: 250px;
+        }
+
+        .toast-notif.show {
+            transform: translateX(0);
+        }
+
+        .toast-icon {
+            background: #10b981;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+
+        .toast-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toast-user {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .toast-status {
+            color: #10b981;
+            margin-left: 5px;
+        }
+
+        .toast-desc {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .flag-icon {
+            width: 16px;
+        }
     </style>
 </head>
 <body>
@@ -265,6 +326,8 @@
             <div id="review-list"></div>
         </div>
     </div>
+
+    <div id="toast-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 10000; pointer-events: none;"></div>
 
     <div class="modal-overlay" id="modalNotice">
         <div class="modal-content">
@@ -335,7 +398,7 @@
             list.appendChild(card);
         }
 
-        // Fungsi Notifikasi
+        // Fungsi Notifikasi Review
         function showNotice() {
             const name = document.getElementById('rev-name').value;
             const text = document.getElementById('rev-text').value;
@@ -353,6 +416,51 @@
             document.getElementById('rev-name').value = "";
             document.getElementById('rev-text').value = "";
         }
+
+        /* --- LOGIKA UNTUK NOTIFIKASI TRANSAKSI OTOMATIS --- */
+        const toastContainer = document.getElementById('toast-container');
+
+        function createTransactionToast() {
+            const names = ["Mu***", "An***", "Re***", "Sya***", "Bamb***", "Riz***", "Hen***", "Jo***", "Put***", "Dim***"];
+            const paymentMethods = ["Dana", "OVO", "GoPay", "ShopeePay", "Transfer Bank"];
+            
+            const randomName = getRandom(names);
+            const randomMethod = getRandom(paymentMethods);
+            const randomAmount = Math.floor(Math.random() * (900 - 100 + 1)) + 100; // Nominal 100 - 900
+
+            const toast = document.createElement('div');
+            toast.className = 'toast-notif';
+            toast.innerHTML = `
+                <div class="toast-icon"><i class="fas fa-check"></i></div>
+                <div class="toast-content">
+                    <div class="toast-user">${randomName} <span class="toast-status">Order Selesai</span></div>
+                    <div class="toast-desc">${randomMethod} - 🇮🇩 Rp ${randomAmount}</div>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+
+            // Munculkan (Slide in)
+            setTimeout(() => toast.classList.add('show'), 100);
+
+            // Hilangkan dan hapus elemen setelah 4 detik
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 500);
+            }, 4000);
+        }
+
+        // Jalankan notifikasi secara berulang dengan jeda waktu acak (5-10 detik)
+        function loopNotif() {
+            const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
+            setTimeout(() => {
+                createTransactionToast();
+                loopNotif();
+            }, delay);
+        }
+
+        // Mulai looping notifikasi
+        loopNotif();
     </script>
 </body>
 </html>
