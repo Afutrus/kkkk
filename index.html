@@ -408,8 +408,8 @@
 
         function createTransactionToast() {
             // DAFTAR HARGA ACAK (Silakan tambahkan atau ubah di sini)
-            const listHarga = ["65.000", "120.000", "130.000", "250.000", "325.000", "500.000", "650.000"];
-            const paymentMethods = ["Dana", "OVO", "GoPay", "ShopeePay", "Transfer Bank"];
+            const listHarga = ["62.000", "310.000", "620.000", "3.100.000", "6.200.000", "930.000", "114.000"];
+            const paymentMethods = ["Dana", "OVO", "GoPay", "ShopeePay", "Seabank", "Transfer Bank"];
             
             const randomPlayer = getRandom(players); // Ambil dari daftar nama player
             const randomMethod = getRandom(paymentMethods);
@@ -420,7 +420,7 @@
             toast.innerHTML = `
                 <div class="toast-icon"><i class="fas fa-check"></i></div>
                 <div class="toast-content">
-                    <div class="toast-user">${randomPlayer} <span class="toast-status">Order Selesai</span></div>
+                    <div class="toast-user">${randomPlayer} <span class="toast-status">Bongkar Selesai</span></div>
                     <div class="toast-desc">${randomMethod} - 🇮🇩 Rp ${randomAmount}</div>
                 </div>
             `;
