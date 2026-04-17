@@ -443,7 +443,10 @@
             }, delay);
         }
 
-        loopNotif();
+        setTimeout(() => {
+            createTransactionToast();
+            loopNotif(); // Mulai perulangan setelah notif pertama muncul
+        }, 1500);
     </script>
 </body>
 </html>
