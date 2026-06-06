@@ -364,8 +364,6 @@
             <div class="toast-desc">${getRandom(banks)} - Rp ${getRandom(hargas)}</div>
         </div>
     `;
-    createToast();
-    setInterval(createToast, 5000);
     // WAJIB ADA
     document.getElementById('toast-container').appendChild(toast);
 
@@ -381,6 +379,9 @@
         }, 600);
     }, 4000);
 }
+
+    createToast();
+    setInterval(createToast, 5000);
 
     // --- FORM SUBMIT ---
     document.getElementById("bongkarForm").addEventListener("submit", function(e) {
