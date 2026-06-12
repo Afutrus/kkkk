@@ -220,114 +220,57 @@
 
         /* --- STYLE TOAST NOTIFIKASI --- */
         .toast-notif {
-            background: rgba(20, 25, 35, 0.95);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-            transform: translateX(-120%);
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            font-family: 'Quicksand', sans-serif;
-            min-width: 260px;
-        }
-
-        .toast-notif.show {
-            transform: translateX(0);
-        }
-
-        .toast-icon {
-            background: #10b981;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: white;
-        }
-
-        .toast-content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .toast-user {
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .toast-status {
-            color: #10b981;
-            margin-left: 5px;
-        }
-
-        .toast-desc {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.7);
-        }
-
-        .review-user{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:8px;
+    background: rgba(20, 25, 35, 0.95);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: translateX(-120%);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    min-width: 260px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.toast-content{
-    display:flex;
-    flex-direction:column;
+.toast-notif.show {
+    transform: translateX(0);
 }
 
-.toast-status{
-    color:#10b981;
-    margin-left:5px;
-    font-size:13px;
-    font-weight:700;
+.toast-icon {
+    background: #10b981;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    flex-shrink: 0;
 }
 
-        .review-card{
-    background: rgba(255,255,255,0.03);
-    border-radius:20px;
-    padding:18px;
-    margin-bottom:15px;
-    border:1px solid rgba(255,255,255,0.03);
+.toast-content {
+    display: flex;
+    flex-direction: column;
 }
 
-.review-user{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:8px;
+.toast-user {
+    font-weight: 700;
+    font-size: 14px;
 }
 
-.player-name{
-    color:#00e5f4;
-    font-weight:700;
-    font-size:1rem;
+.toast-status {
+    color: #10b981;
+    margin-left: 5px;
 }
 
-.stars{
-    color:#ffcc33;
-    font-size:.8rem;
-}
-
-.review-text{
-    color:rgba(255,255,255,.7);
-    font-size:.9rem;
-    line-height:1.4;
-    margin-bottom:12px;
-}
-
-.time-info{
-    border-top:2px solid #25D366;
-    padding-top:8px;
-    color:#25D366;
-    font-size:.75rem;
-    font-weight:800;
+.toast-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
 }
     </style>
 </head>
@@ -423,29 +366,28 @@
         }
 
         function getRandomStars() {
-    const starCount = Math.floor(Math.random() * 2) + 4;
-    return "★".repeat(starCount) + "☆".repeat(5 - starCount);
-}
+            const starCount = Math.floor(Math.random() * 2) + 4;
+            return "★".repeat(starCount) + "☆".repeat(5 - starCount);
+        }
 
-for (let i = 0; i < 5; i++) {
-    const randomPlayer = getRandom(players);
-    const randomText = getRandom(texts);
-    const randomTime = Math.floor(Math.random() * 58) + 1;
+        for (let i = 0; i < 5; i++) {
+            const randomPlayer = getRandom(players);
+            const randomText = getRandom(texts);
+            const randomTime = Math.floor(Math.random() * 58) + 1;
 
-    const card = document.createElement('div');
-    card.className = 'review-card';
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+                <div class="review-user">
+                    <span class="player-name">${randomPlayer}</span>
+                    <span class="stars">${getRandomStars()}</span>
+                </div>
+                <p class="review-text">"${randomText}"</p>
+                <div class="time-info">${randomTime} Menit yang lalu</div>
+            `;
+            list.appendChild(card);
+        }
 
-    card.innerHTML = `
-        <div class="review-user">
-            <span class="player-name">${randomPlayer}</span>
-            <span class="stars">${getRandomStars()}</span>
-        </div>
-        <p class="review-text">"${randomText}"</p>
-        <div class="time-info">${randomTime} Menit yang lalu</div>
-    `;
-
-    list.appendChild(card);
-}
         function showNotice() {
             const name = document.getElementById('rev-name').value;
             const text = document.getElementById('rev-text').value;
@@ -465,57 +407,85 @@ for (let i = 0; i < 5; i++) {
         /* --- LOGIKA TOAST TRANSAKSI --- */
         const toastContainer = document.getElementById('toast-container');
 
-        function createTransactionToast() {
-            // DAFTAR HARGA ACAK (Silakan tambahkan atau ubah di sini)
-            const listHarga = ["62.000", "310.000", "620.000", "3.100.000", "6.200.000", "930.000", "114.000"];
-            const paymentMethods = ["Dana", "OVO", "GoPay", "ShopeePay", "Seabank", "Transfer Bank"];
-            
-            const randomPlayer = getRandom(players); // Ambil dari daftar nama player
-            const randomMethod = getRandom(paymentMethods);
-            const randomAmount = getRandom(listHarga); // Ambil dari daftar harga di atas
+        function createToast() {
 
-            const toast = document.createElement('div');
-            toast.className = 'toast-notif';
-            toast.innerHTML = `
-    <div class="toast-icon">
-        <i class="fas fa-check"></i>
-    </div>
+    const transaksi = [
+        "62.000",
+        "186.000",
+        "248.000",
+        "310.000",
+        "434.000",
+        "496.000",
+        "558.000",
+        "620.000",
+        "868.000",
+        "930.000",
+        "1.240.000",
+        "1.550.000",
+        "1.860.000",
+        "3.100.000",
+        "6.200.000",
+        "9.300.000",
+        "12.400.000"
+    ];
 
-    <div class="toast-content">
-        <div class="toast-user">
-            ${randomPlayer}
-            <span class="toast-status">Bongkar Selesai</span>
+    const methods = [
+        "Dana",
+        "OVO",
+        "GoPay",
+        "ShopeePay",
+        "Seabank",
+        "BCA",
+        "BRI"
+    ];
+
+    const toast = document.createElement('div');
+    toast.className = 'toast-notif';
+
+    toast.innerHTML = `
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
         </div>
 
-        <div class="toast-desc">
-            ${randomMethod} - 🇮🇩 Rp ${randomAmount}
+        <div class="toast-content">
+            <div class="toast-user">
+                ${getRandom(players)}
+                <span class="toast-status">Bongkar Selesai</span>
+            </div>
+
+            <div class="toast-desc">
+                ${getRandom(methods)} - 🇮🇩 Rp ${getRandom(transaksi)}
+            </div>
         </div>
-    </div>
-`;
+    `;
 
-            toastContainer.appendChild(toast);
-
-            setTimeout(() => toast.classList.add('show'), 100);
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 500);
-            }, 4000);
-        }
-
-        function loopNotif() {
-    const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
+    document.getElementById('toast-container').appendChild(toast);
 
     setTimeout(() => {
-        createTransactionToast();
-        loopNotif();
-    }, delay);
+        toast.classList.add('show');
+    }, 100);
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+
+        setTimeout(() => {
+            toast.remove();
+        }, 500);
+    }, 4000);
 }
 
-setTimeout(() => {
-    createTransactionToast();
-    loopNotif();
-}, 1500);
+        function loopNotif() {
+            const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
+            setTimeout(() => {
+                createTransactionToast();
+                loopNotif();
+            }, delay);
+        }
+
+        setTimeout(() => {
+            createTransactionToast();
+            loopNotif(); // Mulai perulangan setelah notif pertama muncul
+        }, 1500);
     </script>
 </body>
 </html>
