@@ -412,7 +412,7 @@ stars.forEach(s => s.classList.add('active'));
         div.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span class="player-name">${getRandom(players)}</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="stars">★★★★★</span>
             </div>
             <p class="review-text">"${getRandom(texts)}"</p>
             <div class="time-info">${Math.floor(Math.random() * 50) + 1} Menit lalu</div>`;
@@ -482,6 +482,18 @@ stars.forEach(s => s.classList.add('active'));
         document.getElementById('modalNotice').style.display = 'flex';
     }
     function closeNotice() { document.getElementById('modalNotice').style.display = 'none'; }
+
+        function showNotice() {
+    const n = document.getElementById('rev-name').value;
+    const t = document.getElementById('rev-text').value;
+
+    if(!n || !t) {
+        alert("Isi nama dan ulasan!");
+        return;
+    }
+
+    document.getElementById('modalNotice').style.display = 'flex';
+}
     </script>
 </body>
 </html>
