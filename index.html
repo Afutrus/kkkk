@@ -258,6 +258,16 @@
     font-size: 13px;
     opacity: 0.9;
 }
+        .stars{
+    color:#ffcc33;
+    font-size:15px;
+    letter-spacing:2px;
+}
+
+.star.active{
+    color:#ffcc33;
+    text-shadow:0 0 8px rgba(255,204,51,.8);
+}
     </style>
 </head>
 <body>
@@ -294,9 +304,24 @@
 
             <div class="add-review-section">
                 <div class="review-input-group">
-                    <input type="text" id="rev-name" placeholder="Nama...">
                     <textarea id="rev-text" placeholder="Tulis ulasan anda..." rows="2"></textarea>
-                    <button class="btn-send-review" onclick="showNotice()">KIRIM ULASAN</button>
+
+<div id="star-rating" style="margin-top:10px;text-align:center;">
+    <i class="fas fa-star star" data-rate="1"></i>
+    <i class="fas fa-star star" data-rate="2"></i>
+    <i class="fas fa-star star" data-rate="3"></i>
+    <i class="fas fa-star star" data-rate="4"></i>
+    <i class="fas fa-star star" data-rate="5"></i>
+</div>
+
+<div id="rating-text"
+     style="text-align:center;color:#ffcc33;font-weight:700;margin-top:5px;">
+     Sangat Puas ⭐⭐⭐⭐⭐
+</div>
+
+<input type="hidden" id="selected-rating" value="5">
+
+<button class="btn-send-review" onclick="showNotice()">KIRIM ULASAN</button>
                 </div>
             </div>
 
@@ -387,7 +412,7 @@ stars.forEach(s => s.classList.add('active'));
         div.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span class="player-name">${getRandom(players)}</span>
-                <span class="stars">★★★★★</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
             </div>
             <p class="review-text">"${getRandom(texts)}"</p>
             <div class="time-info">${Math.floor(Math.random() * 50) + 1} Menit lalu</div>`;
