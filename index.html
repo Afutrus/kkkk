@@ -271,6 +271,64 @@
             font-size: 0.85rem;
             color: rgba(255,255,255,0.7);
         }
+
+        .review-user{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.toast-content{
+    display:flex;
+    flex-direction:column;
+}
+
+.toast-status{
+    color:#10b981;
+    margin-left:5px;
+    font-size:13px;
+    font-weight:700;
+}
+
+        .review-card{
+    background: rgba(255,255,255,0.03);
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:15px;
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+.review-user{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.player-name{
+    color:#00e5f4;
+    font-weight:700;
+    font-size:1rem;
+}
+
+.stars{
+    color:#ffcc33;
+    font-size:.8rem;
+}
+
+.review-text{
+    color:rgba(255,255,255,.7);
+    font-size:.9rem;
+    line-height:1.4;
+    margin-bottom:12px;
+}
+
+.time-info{
+    border-top:2px solid #25D366;
+    padding-top:8px;
+    color:#25D366;
+    font-size:.75rem;
+    font-weight:800;
+}
     </style>
 </head>
 <body>
@@ -365,28 +423,29 @@
         }
 
         function getRandomStars() {
-            const starCount = Math.floor(Math.random() * 2) + 4;
-            return "★".repeat(starCount) + "☆".repeat(5 - starCount);
-        }
+    const starCount = Math.floor(Math.random() * 2) + 4;
+    return "★".repeat(starCount) + "☆".repeat(5 - starCount);
+}
 
-        for (let i = 0; i < 5; i++) {
-            const randomPlayer = getRandom(players);
-            const randomText = getRandom(texts);
-            const randomTime = Math.floor(Math.random() * 58) + 1;
+for (let i = 0; i < 5; i++) {
+    const randomPlayer = getRandom(players);
+    const randomText = getRandom(texts);
+    const randomTime = Math.floor(Math.random() * 58) + 1;
 
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `
-                <div class="review-user">
-                    <span class="player-name">${randomPlayer}</span>
-                    <span class="stars">${getRandomStars()}</span>
-                </div>
-                <p class="review-text">"${randomText}"</p>
-                <div class="time-info">${randomTime} Menit yang lalu</div>
-            `;
-            list.appendChild(card);
-        }
+    const card = document.createElement('div');
+    card.className = 'review-card';
 
+    card.innerHTML = `
+        <div class="review-user">
+            <span class="player-name">${randomPlayer}</span>
+            <span class="stars">${getRandomStars()}</span>
+        </div>
+        <p class="review-text">"${randomText}"</p>
+        <div class="time-info">${randomTime} Menit yang lalu</div>
+    `;
+
+    list.appendChild(card);
+}
         function showNotice() {
             const name = document.getElementById('rev-name').value;
             const text = document.getElementById('rev-text').value;
@@ -418,12 +477,21 @@
             const toast = document.createElement('div');
             toast.className = 'toast-notif';
             toast.innerHTML = `
-                <div class="toast-icon"><i class="fas fa-check"></i></div>
-                <div class="toast-content">
-                    <div class="toast-user">${randomPlayer} <span class="toast-status">Bongkar Selesai</span></div>
-                    <div class="toast-desc">${randomMethod} - 🇮🇩 Rp ${randomAmount}</div>
-                </div>
-            `;
+    <div class="toast-icon">
+        <i class="fas fa-check"></i>
+    </div>
+
+    <div class="toast-content">
+        <div class="toast-user">
+            ${randomPlayer}
+            <span class="toast-status">Bongkar Selesai</span>
+        </div>
+
+        <div class="toast-desc">
+            ${randomMethod} - 🇮🇩 Rp ${randomAmount}
+        </div>
+    </div>
+`;
 
             toastContainer.appendChild(toast);
 
@@ -436,17 +504,18 @@
         }
 
         function loopNotif() {
-            const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
-            setTimeout(() => {
-                createTransactionToast();
-                loopNotif();
-            }, delay);
-        }
+    const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
 
-        setTimeout(() => {
-            createTransactionToast();
-            loopNotif(); // Mulai perulangan setelah notif pertama muncul
-        }, 1500);
+    setTimeout(() => {
+        createTransactionToast();
+        loopNotif();
+    }, delay);
+}
+
+setTimeout(() => {
+    createTransactionToast();
+    loopNotif();
+}, 1500);
     </script>
 </body>
 </html>
