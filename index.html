@@ -443,21 +443,21 @@
     toast.className = 'toast-notif';
 
     toast.innerHTML = `
-        <div class="toast-icon">
-            <i class="fas fa-check"></i>
-        </div>
+<div class="toast-icon">
+    <img src="img/neo.jpg" alt="Neo Party">
+</div>
 
-        <div class="toast-content">
-            <div class="toast-user">
-                ${getRandom(players)}
-                <span class="toast-status">Bongkar Selesai</span>
-            </div>
+<div class="toast-content">
+    <div class="toast-user">
+        ${randomPlayer}
+        <span class="toast-status">Bongkar Selesai</span>
+    </div>
 
-            <div class="toast-desc">
-                ${getRandom(methods)} - 🇮🇩 Rp ${getRandom(transaksi)}
-            </div>
-        </div>
-    `;
+    <div class="toast-desc">
+        ${randomMethod} - 🇮🇩 Rp ${randomAmount}
+    </div>
+</div>
+`;
 
     document.getElementById('toast-container').appendChild(toast);
 
