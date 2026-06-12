@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bongkar - Neo Party</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --glass-bg: rgba(26, 34, 53, 0.85);
+            --neon-blue: #00f2ff;
+            --wa-green: #25D366;
+            --orange-btn: linear-gradient(180deg, #ffbb33 0%, #ff8800 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #87e2f3 radial-gradient(circle at top, #00d2ff 0%, #87e2f3 100%);
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .main-wrapper {
+            width: 92%;
+            max-width: 450px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .withdraw-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .withdraw-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--neon-blue);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        .logo-mid {
+            width: 80px;
+            height: auto;
+            margin: 10px auto 20px;
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .main-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .price-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px dashed #ff9800;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 25px;
+            color: #ffbb33;
+            font-size: 1.4rem;
+            font-weight: 800;
+            box-shadow: inset 0 0 15px rgba(255, 152, 0, 0.1);
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 0 auto 30px;
+            display: inline-block;
+        }
+
+        .feature-item {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item i {
+            color: var(--neon-blue);
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--orange-btn);
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(255, 136, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 136, 0, 0.5);
+        }
+
+        /* --- TESTIMONI SECTION --- */
+        .testi-container { padding: 30px 25px; }
+        .testi-title { display: flex; align-items: center; gap: 12px; color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 25px; }
+        .testi-title i { color: #a33eb3; font-size: 1.4rem; }
+        
+        .add-review-section { margin-bottom: 25px; }
+        .review-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .review-input-group input, 
+        .review-input-group textarea {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px;
+            color: white;
+            font-family: inherit;
+            outline: none;
+        }
+        .btn-send-review {
+            background: var(--neon-blue);
+            color: #1a2235;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-send-review:hover { filter: brightness(1.2); }
+
+        .review-card{
+    background: rgba(255,255,255,0.03);
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:15px;
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+.review-user{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+.player-name{
+    color:#00e5f4;
+    font-weight:700;
+    font-size:1rem;
+}
+
+.stars{
+    color:#ffcc33;
+    font-size:.8rem;
+}
+
+.review-text{
+    color:rgba(255,255,255,.7);
+    font-size:.9rem;
+    line-height:1.4;
+    margin-bottom:12px;
+}
+
+.time-info{
+    border-top:2px solid #25D366;
+    padding-top:8px;
+    color:#25D366;
+    font-size:.75rem;
+    font-weight:800;
+}
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #1a2235;
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 350px;
+            border: 2px solid var(--neon-blue);
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-content i { font-size: 3.5rem; color: #ffcc33; margin-bottom: 15px; }
+        .modal-content p { color: white; font-weight: 600; line-height: 1.6; font-size: 1rem; }
+        .btn-close-modal {
+            margin-top: 25px;
+            background: var(--neon-blue);
+            border: none;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            color: #1a2235;
+        }
+
+        /* --- STYLE TOAST NOTIFIKASI --- */
+        .toast-notif{
+    background:rgba(20,25,35,.95);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+    border:1px solid rgba(255,255,255,.1);
+    transform:translateX(-120%);
+    transition:.5s;
+    min-width:260px;
+}
+
+.toast-notif.show{
+    transform:translateX(0);
+}
+
+.toast-icon{
+    background:#10b981;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:12px;
+}
+
+.toast-content{
+    display:flex;
+    flex-direction:column;
+}
+
+.toast-status{
+    color:#10b981;
+    margin-left:5px;
+    font-size:13px;
+}
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="withdraw-header">
+            <h1>Withdraw Neo Party</h1>
+            
+            <img src="logo.png" alt="Logo Neo Party" class="logo-mid">
+
+            <div class="main-title">
+                PENCAIRAN KOIN SAAT INI MELALUI<br>WHATSAPP ADMIN
+            </div>
+
+            <div class="price-box">
+                Withdraw : Rp 62.000 / B
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Admin Online 24 Jam</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> 100% Terjamin Amanah</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Proses 1 Menit Uang Langsung Cair</div>
+            </div>
+
+            <a href="https://wa.me/6285143872975?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
+                <i class="fab fa-whatsapp" style="font-size: 1.6rem;"></i> HUBUNGI ADMIN
+            </a>
+        </div>
+
+        <div class="testi-container">
+            <div class="testi-title">
+                <i class="fas fa-comments"></i> Ulasan Pembeli
+            </div>
+
+            <div class="add-review-section">
+                <div class="review-input-group">
+                    <input type="text" id="rev-name" placeholder="Nama...">
+                    <textarea id="rev-text" placeholder="Tulis ulasan anda..." rows="2"></textarea>
+                    <button class="btn-send-review" onclick="showNotice()">KIRIM ULASAN</button>
+                </div>
+            </div>
+
+            <div id="review-list"></div>
+        </div>
+    </div>
+
+    <div id="toast-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 10000; pointer-events: none;"></div>
+
+    <div class="modal-overlay" id="modalNotice">
+        <div class="modal-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Anda hanya bisa berkomentar jika sudah melakukan withdraw koin melalui Admin.</p>
+            <button class="btn-close-modal" onclick="closeNotice()">SAYA MENGERTI</button>
+        </div>
+    </div>
+
+    <script>
+        const players = [
+            "ahmad", "player_2448011", "PejuangB", "kings", "Player_1895",
+            "suprilopez", "RizkyGamer", "noobMaster77", "andika_01", "shadowX",
+            "ZakyPro", "hunter_998", "legendaryID", "FajarXGaming", "dark_knight21",
+            "bagasplay", "indra_777", "sultanboss", "rehanProID", "ghostplayer99"
+        ];
+        
+        const texts = [
+            "Adminnya ramah kalau ada kendala langsung dibantu.",
+            "Udah bongkar berkali-kali selalu amanah. Jozzz.",
+            "Bongkar 50b amanah bosku.",
+            "Bongkar di sini emang paling kilat, dana langsung di proses!",
+            "Terjamin amanah, dana langsung cair hitungan menit.",
+            "Bongkar 100b done amanah bosku.",
+            "makasih admin done bongkar 30b, mantap.",
+            "Baru coba bongkar 100b, prosesnya cepat.",
+            "bongkar 100b sama akun done 1 menit lansung dibayar, makasih kk.",
+            "bongkar 20b Proses tanpa ribet, langsung cair.",
+            "amanah bang , udah langganan di sini.",
+            "withdraw 200b amanah kak makasih ya.",
+            "Cepet banget prosesnya, makasih min amanah bongkar 40b.",
+            "Mantap jiwa, baru kirim langsung diproses.",
+            "Amanah pol 1 menit lansung di tf, recommended buat semua.",
+            "sudah 3x bongkar 20b, selalu lancar tiap transaksi.",
+            "Admin fast respon, thanks aman bongkar 10b.",
+            "Sudah berkali-kali bongkar, tetap amanah.",
+            "Dana masuk cepat, thanks bosku.",
+            "matursuwun mas, amanah bongkar 35b."
+        ];
+
+        const list = document.getElementById('review-list');
+
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function getRandomStars() {
+    const starCount = Math.floor(Math.random() * 2) + 4;
+    return "★".repeat(starCount) + "☆".repeat(5 - starCount);
+}
+
+for (let i = 0; i < 5; i++) {
+
+    const card = document.createElement('div');
+    card.className = 'review-card';
+
+    card.innerHTML = `
+        <div class="review-user">
+            <span class="player-name">${getRandom(players)}</span>
+            <span class="stars">${getRandomStars()}</span>
+        </div>
+        <p class="review-text">"${getRandom(texts)}"</p>
+        <div class="time-info">${Math.floor(Math.random()*58)+1} Menit yang lalu</div>
+    `;
+
+    list.appendChild(card);
+}
+
+        function showNotice() {
+            const name = document.getElementById('rev-name').value;
+            const text = document.getElementById('rev-text').value;
+            if(name.trim() === "" || text.trim() === "") {
+                alert("Silahkan isi nama dan ulasan.");
+                return;
+            }
+            document.getElementById('modalNotice').style.display = 'flex';
+        }
+
+        function closeNotice() {
+            document.getElementById('modalNotice').style.display = 'none';
+            document.getElementById('rev-name').value = "";
+            document.getElementById('rev-text').value = "";
+        }
+
+        /* --- LOGIKA TOAST TRANSAKSI --- */
+        const toastContainer = document.getElementById('toast-container');
+
+        function createTransactionToast() {
+            // DAFTAR HARGA ACAK (Silakan tambahkan atau ubah di sini)
+            const listHarga = ["62.000", "310.000", "620.000", "3.100.000", "6.200.000", "930.000", "114.000"];
+            const paymentMethods = ["Dana", "OVO", "GoPay", "ShopeePay", "Seabank", "Transfer Bank"];
+            
+            const randomPlayer = getRandom(players); // Ambil dari daftar nama player
+            const randomMethod = getRandom(paymentMethods);
+            const randomAmount = getRandom(listHarga); // Ambil dari daftar harga di atas
+
+            const toast = document.createElement('div');
+            toast.className = 'toast-notif';
+            toast.innerHTML = `
+    <div class="toast-icon">
+        <i class="fas fa-check"></i>
+    </div>
+
+    <div class="toast-content">
+        <div class="toast-user">
+            ${getRandom(players)}
+            <span class="toast-status">Bongkar Selesai</span>
+        </div>
+
+        <div class="toast-desc">
+            ${getRandom(banks)} - Rp ${trx.nominal}
+        </div>
+    </div>
+`;
+
+        function loopNotif() {
+            const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
+            setTimeout(() => {
+                createTransactionToast();
+                loopNotif();
+            }, delay);
+        }
+
+        setTimeout(() => {
+            createTransactionToast();
+            loopNotif(); // Mulai perulangan setelah notif pertama muncul
+        }, 1500);
+    </script>
+</body>
+</html>
